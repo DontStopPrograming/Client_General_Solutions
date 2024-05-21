@@ -1,0 +1,15 @@
+.navbar {}
+
+.bar {}
+
+@media (max-width: 768px) {
+    .bar {
+        max-width: 100%;
+    }
+
+    .MuiList-root {
+        background: red;
+        width: 100%;
+
+    }
+}
