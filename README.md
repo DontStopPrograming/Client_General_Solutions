@@ -1,16 +1,16 @@
 # Client_General_Solutions
 Web directed to SERVICES AND GENERALS SOLUTIONS
 
-.[!NOTE].
+> **NOTE**
 this is the Note
 
-.[!TIP].
+> **TIP**
 This is the Tip
 
-.[!IMPORTANT].
+> **IMPORTANT**
 this is the Important
 
-.[!CAUTION].
+> **CAUTION**
 this is the Caution
 
 
