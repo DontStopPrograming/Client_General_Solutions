@@ -9,5 +9,5 @@ Installing the package:
 `npm install` or `npm i`
 
 Version of Vite.js:
-18 < onwards
+`18 < onwards`
 
