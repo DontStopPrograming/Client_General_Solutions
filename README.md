@@ -1,18 +1,13 @@
 # Client_General_Solutions
 Web directed to SERVICES AND GENERALS SOLUTIONS
+The company is dedicated to risk analysis and contingency planning. 
 
-> **NOTE**
-this is the Note
+> **PRE CONDITIONS**
+Installing Node.js in your system
 
-> **TIP**
-This is the Tip
+Installing the package:
+`npm install` or `npm i`
 
-> **IMPORTANT**
-this is the Important
-
-> **CAUTION**
-this is the Caution
-
-
-
+Version of Vite.js:
+18 < onwards
 
