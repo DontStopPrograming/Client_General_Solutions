@@ -5,9 +5,9 @@ The company is dedicated to risk analysis and contingency planning.
 > **PRE CONDITIONS**
 Installing Node.js in your system
 
-![alt text](image-1.png)Installing the package:
-`npm install` or `npm i`
+Installing the package:
+`npm install` or `npm i` ![alt text](image-1.png) 
 
-![alt text](image.png)Version of Vite.js:
-`18 < onwards`
+Version of Vite.js:
+`18 < onwards` ![alt text](image.png) 
 
