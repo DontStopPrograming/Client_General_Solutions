@@ -14,35 +14,72 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 
+/* These import statements are importing components from the Material-UI library. Here is a breakdown
+of what each component does: */
+import Backdrop from '@mui/material/Backdrop';
+import Modal from '@mui/material/Modal';
+import Fade from '@mui/material/Fade';
+
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
+const style = {
+	position: 'absolute',
+	top: '50%',
+	left: '50%',
+	transform: 'translate(-50%, -50%)',
+	width: 400,
+	bgcolor: 'background.paper',
+	border: '2px solid #000',
+	boxShadow: 24,
+	p: 4,
+};
 
 const images = [
 	{
 		label: 'San Francisco – Oakland Bay Bridge, United States',
 		imgPath:
 			'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+		modalContent: {
+			title: 'San Francisco – Oakland Bay Bridge',
+			description: 'This is the description for the San Francisco – Oakland Bay Bridge image.'
+		}
 	},
 	{
 		label: 'Bird',
 		imgPath:
 			'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+		modalContent: {
+			title: 'Bird',
+			description: 'This is the description for the Bird image.'
+		}
 	},
 	{
 		label: 'Bali, Indonesia',
 		imgPath:
 			'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
+		modalContent: {
+			title: 'Bali, Indonesia',
+			description: 'This is the description for the Bali, Indonesia image.'
+		}
 	},
 	{
 		label: 'Goč, Serbia',
 		imgPath:
 			'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+		modalContent: {
+			title: 'Goč, Serbia',
+			description: 'This is the description for the Goč, Serbia image.'
+		}
 	},
 ];
 
 export const Services = () => {
 	const theme = useTheme();
-	const [activeStep, setActiveStep] = useState(3);
+	const [activeStep, setActiveStep] = useState(0);
 	const maxSteps = images.length;
+
+	const [open, setOpen] = useState(false)
+	const [selectedImage, setSelectedImage] = useState(null)
 
 	const handleNext = () => {
 		setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -55,6 +92,15 @@ export const Services = () => {
 	const handleStepChange = (step) => {
 		setActiveStep(step);
 	};
+
+	const handleImageClick = (image) => {
+		setSelectedImage(image)
+		setOpen(true)
+	}
+
+	const handleClose = () => {
+		setOpen(false)
+	}
 
 	return (
 		<>
@@ -93,9 +139,11 @@ export const Services = () => {
 												maxWidth: '100%',
 												overflow: 'hidden',
 												width: '100%',
+												cursor: 'pointer'
 											}}
 											src={step.imgPath}
 											alt={step.label}
+											onClick={() => handleImageClick(step)}
 										/>
 									) : null}
 								</div>
@@ -132,10 +180,35 @@ export const Services = () => {
 						/>
 					</Box>
 				</div>
-
-
-
 			</div>
+
+			<Modal
+				aria-labelledby="transition-modal-title"
+				aria-describedby="transition-modal-description"
+				open={open}
+				onClose={handleClose}
+				closeAfterTransition
+				slots={{ backdrop: Backdrop }}
+				slotProps={{
+					backdrop: {
+						timeout: 500,
+					},
+				}}
+			>
+
+				<Fade in={open}>
+					<Box sx={style}>
+						<Typography id="transition-modal-title" variant="h6" component="h2">
+							{selectedImage?.modalContent?.title}
+						</Typography>
+						<Typography id="transition-modal-description" sx={{ mt: 2 }}>
+							{selectedImage?.modalContent?.description}
+						</Typography>
+					</Box>
+				</Fade>
+
+			</Modal>
+
 		</>
 	)
 }
