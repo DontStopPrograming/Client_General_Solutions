@@ -1,3 +1,19 @@
-.services {
-  
+.title-services {
+    text-align: center;
+}
+
+.carousel_services {
+    margin: 0;
+    padding: 0;
+    margin-left: 40%;
+    border: 1px solid rgb(0, 255, 128);
+}
+
+@media (max-width: 768px) {
+
+    .carousel_services {
+        margin-left: 10%;
+
+    }
+
 }
