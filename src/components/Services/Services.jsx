@@ -34,6 +34,8 @@ const style = {
 	p: 4,
 };
 
+/* The `images` constant is an array of objects that contains information about different images. Each
+object in the array represents a specific image and includes the following properties: */
 const images = [
 	{
 		label: 'San Francisco – Oakland Bay Bridge, United States',
