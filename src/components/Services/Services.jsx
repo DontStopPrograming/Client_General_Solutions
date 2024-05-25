@@ -43,7 +43,9 @@ const images = [
 			'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
 		modalContent: {
 			title: 'San Francisco – Oakland Bay Bridge',
-			description: 'This is the description for the San Francisco – Oakland Bay Bridge image.'
+			description: 'This is the description for the San Francisco – Oakland Bay Bridge image.',
+			imgPath:
+				'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
 		}
 	},
 	{
@@ -52,7 +54,9 @@ const images = [
 			'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
 		modalContent: {
 			title: 'Bird',
-			description: 'This is the description for the Bird image.'
+			description: 'This is the description for the Bird image.',
+			imgPath:
+				'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
 		}
 	},
 	{
@@ -61,7 +65,9 @@ const images = [
 			'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
 		modalContent: {
 			title: 'Bali, Indonesia',
-			description: 'This is the description for the Bali, Indonesia image.'
+			description: 'This is the description for the Bali, Indonesia image.',
+			imgPath:
+				'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
 		}
 	},
 	{
@@ -70,12 +76,15 @@ const images = [
 			'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
 		modalContent: {
 			title: 'Goč, Serbia',
-			description: 'This is the description for the Goč, Serbia image.'
+			description: 'This is the description for the Goč, Serbia image.',
+			imgPath:
+				'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
 		}
 	},
 ];
 
 export const Services = () => {
+
 	const theme = useTheme();
 	const [activeStep, setActiveStep] = useState(0);
 	const maxSteps = images.length;
@@ -83,23 +92,38 @@ export const Services = () => {
 	const [open, setOpen] = useState(false)
 	const [selectedImage, setSelectedImage] = useState(null)
 
+	/**
+	 * The handleNext function increases the active step by 1 in a React component.
+	 */
 	const handleNext = () => {
 		setActiveStep((prevActiveStep) => prevActiveStep + 1);
 	};
 
+	/**
+	 * The function `handleBack` decreases the value of `activeStep` by 1.
+	 */
 	const handleBack = () => {
 		setActiveStep((prevActiveStep) => prevActiveStep - 1);
 	};
 
+	/**
+	 * The handleStepChange function sets the active step to the specified step.
+	 */
 	const handleStepChange = (step) => {
 		setActiveStep(step);
 	};
 
+	/**
+	 * The function `handleImageClick` sets the selected image and opens a modal.
+	 */
 	const handleImageClick = (image) => {
 		setSelectedImage(image)
 		setOpen(true)
 	}
 
+	/**
+	 * The `handleClose` function sets the `open` state to `false`.
+	 */
 	const handleClose = () => {
 		setOpen(false)
 	}
@@ -205,6 +229,9 @@ export const Services = () => {
 						</Typography>
 						<Typography id="transition-modal-description" sx={{ mt: 2 }}>
 							{selectedImage?.modalContent?.description}
+						</Typography>
+						<Typography id="transition-modal-image" sx={{ mt: 2 }}>
+							<img src={selectedImage?.modalContent?.imgPath} alt={selectedImage?.label} />
 						</Typography>
 					</Box>
 				</Fade>
