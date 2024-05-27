@@ -131,7 +131,7 @@ export const Services = () => {
 	return (
 		<>
 			<div className='container__services'>
-				<div className='title-services'> <h1>SERVICES</h1> </div>
+				<div className='title_services'> <h1>SERVICES</h1> </div>
 
 				<div className='carousel_services'>
 					<Box sx={{ maxWidth: 400, flexGrow: 1 }}>
@@ -238,6 +238,10 @@ export const Services = () => {
 						</Fade>
 
 					</Modal>
+				</div>
+
+				<div className='phrase_services'>
+					<p> Ensuring our customers safety </p>
 				</div>
 
 			</div>
