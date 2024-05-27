@@ -1,6 +1,10 @@
-.about {}
-
 .container__about {
+    padding: 20px;
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+/* SECTION ONE ABOUT                                                                  ⬇ OPEN*/
+.section_one_about {
     display: grid;
     grid-template-columns: .5fr 1fr;
     grid-template-rows: repeat(1, 1fr);
@@ -8,20 +12,84 @@
 }
 
 .container_title_about {
+
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
     border: 1px solid blueviolet;
+    padding: 50px;
+}
+
+.title_line {
+    width: 2px;
+    height: 100px;
+    background-color: black;
+    display: inline-block;
 }
 
 .phrase_about {
     border: 1px solid rgb(43, 174, 226);
 }
 
+.phrase_about_years {
+    font-size: 10rem;
+}
+
+/* SECTION ONE ABOUT                                                                  ⬆ CLOSE*/
+
+
+/* -------------------------------------------------------------------------------------------- */
+
+
+/* SECTION TWO ABOUT                                                                  ⬇ OPEN*/
+
+.section_two_about {
+    padding: 50px;
+    text-align: left;
+    margin-left: 30%;
+}
+
+/* SECTION TWO ABOUT                                                                  ⬆ CLOSE*/
+
+
+/* -------------------------------------------------------------------------------------------- */
+
+
+/* RESPONSIVE                                                                              ⬇ OPEN*/
+
 @media (max-width: 768px) {
 
-    .container__about {
+    .section_one_about {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         padding: 20px;
     }
+
+    .title_about {
+        writing-mode: horizontal-tb;
+        transform: rotate(180deg);
+
+    }
+
+    .title_line {
+        width: 100px;
+        height: 2px;
+        background-color: black;
+        display: inline-block;
+    }
+
+    .phrase_about_years {
+        font-size: 4rem;
+    }
+
+
+
+    .section_two_about {
+        padding: 20px;
+        text-align: left;
+        margin-left: 0%;
+    }
+
+
 
 }
