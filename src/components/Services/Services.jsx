@@ -206,38 +206,41 @@ export const Services = () => {
 						/>
 					</Box>
 				</div>
+
+				<div className='modal_services'>
+
+					<Modal
+						aria-labelledby="transition-modal-title"
+						aria-describedby="transition-modal-description"
+						open={open}
+						onClose={handleClose}
+						closeAfterTransition
+						slots={{ backdrop: Backdrop }}
+						slotProps={{
+							backdrop: {
+								timeout: 500,
+							},
+						}}
+					>
+
+						<Fade in={open}>
+							<Box sx={style}>
+								<Typography id="transition-modal-title" variant="h6" component="h2">
+									{selectedImage?.modalContent?.title}
+								</Typography>
+								<Typography id="transition-modal-description" sx={{ mt: 2 }}>
+									{selectedImage?.modalContent?.description}
+								</Typography>
+								<Typography id="transition-modal-image" sx={{ mt: 2 }}>
+									<img src={selectedImage?.modalContent?.imgPath} alt={selectedImage?.label} />
+								</Typography>
+							</Box>
+						</Fade>
+
+					</Modal>
+				</div>
+
 			</div>
-
-			<Modal
-				aria-labelledby="transition-modal-title"
-				aria-describedby="transition-modal-description"
-				open={open}
-				onClose={handleClose}
-				closeAfterTransition
-				slots={{ backdrop: Backdrop }}
-				slotProps={{
-					backdrop: {
-						timeout: 500,
-					},
-				}}
-			>
-
-				<Fade in={open}>
-					<Box sx={style}>
-						<Typography id="transition-modal-title" variant="h6" component="h2">
-							{selectedImage?.modalContent?.title}
-						</Typography>
-						<Typography id="transition-modal-description" sx={{ mt: 2 }}>
-							{selectedImage?.modalContent?.description}
-						</Typography>
-						<Typography id="transition-modal-image" sx={{ mt: 2 }}>
-							<img src={selectedImage?.modalContent?.imgPath} alt={selectedImage?.label} />
-						</Typography>
-					</Box>
-				</Fade>
-
-			</Modal>
-
 		</>
 	)
 }
