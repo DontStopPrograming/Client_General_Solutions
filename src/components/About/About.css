@@ -19,6 +19,10 @@
     padding: 50px;
 }
 
+.title_about {
+    margin-top: 50%;
+}
+
 .title_line {
     width: 2px;
     height: 100px;
@@ -54,6 +58,23 @@
 /* -------------------------------------------------------------------------------------------- */
 
 
+/* SECTION THREE ABOUT                                                                  ⬇ OPEN*/
+
+
+.img_about {
+
+    width: 200px;
+    height: 200px;
+    margin-left: 10%;
+    border: 1px solid blue;
+}
+
+
+/* SECTION THREE ABOUT                                                                  ⬆ CLOSE*/
+
+
+
+
 /* RESPONSIVE                                                                              ⬇ OPEN*/
 
 @media (max-width: 768px) {
@@ -68,6 +89,7 @@
     .title_about {
         writing-mode: horizontal-tb;
         transform: rotate(180deg);
+        margin-top: 0%;
 
     }
 

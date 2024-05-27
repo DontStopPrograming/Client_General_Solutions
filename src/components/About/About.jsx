@@ -7,9 +7,14 @@ export const About = () => {
 				<section className='section_one_about'>
 					<div className='container_title_about'>
 
-						<div className='title_about'> <span className='title_line'> </span> <h2> ABOUT </h2> <span className='title_line'> </span> </div>
+						<div className='title_about'>
+							<span className='title_line'> </span>
+							<h2> ABOUT </h2>
+							<span className='title_line'> </span>
+						</div>
 
 					</div>
+
 					<div className='phrase_about'>
 						<p> <span className='phrase_about_years'> 7 </span> Years of market expertise
 							Providing swift and efficient licensing consultation solutions
@@ -46,6 +51,7 @@ export const About = () => {
 					</div>
 
 				</section>
+
 
 			</div>
 		</>
