@@ -131,7 +131,7 @@ export const Services = () => {
 	return (
 		<>
 			<div className='container__services'>
-				<div className='title_services'> <h1>SERVICES</h1> </div>
+				<div className='title_services'> <h2>SERVICES</h2> </div>
 
 				<div className='carousel_services'>
 					<Box sx={{ maxWidth: 400, flexGrow: 1 }}>
@@ -241,7 +241,7 @@ export const Services = () => {
 				</div>
 
 				<div className='phrase_services'>
-					<p> Your safety is our top priority </p>
+					<h1> Your safety is <br /> our top priority </h1>
 				</div>
 
 			</div>
