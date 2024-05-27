@@ -241,7 +241,7 @@ export const Services = () => {
 				</div>
 
 				<div className='phrase_services'>
-					<p> Ensuring our customers safety </p>
+					<p> Your safety is our top priority </p>
 				</div>
 
 			</div>
