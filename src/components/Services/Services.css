@@ -1,6 +1,6 @@
 .container__services {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 400px 1fr;
     grid-template-rows: repeat(1, 1fr);
     grid-template-areas:
         'title_services carousel_services phrase_services'
@@ -12,19 +12,21 @@
 .title_services {
     grid-area: title_services;
 
+    text-align: center;
     writing-mode: vertical-lr;
     text-orientation: upright;
-    margin-left: 50%;
     border: 1px solid rgb(0, 255, 128);
+    padding: -20px;
 }
+
+.title_services h2 {}
 
 .carousel_services {
     grid-area: carousel_services;
 
+    padding: .5px;
     border: 1px solid rgb(255, 136, 0);
 }
-
-
 
 
 .phrase_services {
@@ -32,11 +34,13 @@
 
     text-align: left;
     border: 1px solid rgb(119, 0, 255);
+
 }
 
 .phrase_services h1 {
-    margin-top: 20%;
-    margin-left: -20%;
+
+    padding: 40px;
+    text-align: left;
 }
 
 @media (max-width: 768px) {
@@ -51,6 +55,8 @@
             'carousel_services'
             'phrase_services'
         ;
+
+        padding: 20px;
     }
 
     .phrase_services {
@@ -63,8 +69,10 @@
         border: 1px solid rgb(0, 255, 128);
     }
 
-    .phrase_services p {
+    .phrase_services h1 {
         margin-top: 0%;
         margin-left: 0%;
+        text-align: center;
+        padding: 0;
     }
 }

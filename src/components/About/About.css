@@ -1,1 +1,27 @@
 .about {}
+
+.container__about {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    grid-template-rows: repeat(1, 1fr);
+    padding: 50px;
+}
+
+.container_title_about {
+    border: 1px solid blueviolet;
+}
+
+.phrase_about {
+    border: 1px solid rgb(43, 174, 226);
+}
+
+@media (max-width: 768px) {
+
+    .container__about {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        padding: 20px;
+    }
+
+}
