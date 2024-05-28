@@ -68,13 +68,6 @@ export const Navbar = () => {
 							<MenuItem> Services </MenuItem>
 							<MenuItem> About </MenuItem>
 							<MenuItem> Contact </MenuItem> */}
-							{/* 
-							{pages.map((page, id) => (
-								<MenuItem key={id} onClick={closeMenu}>
-									<Link to={page.href}> {page.name} </Link>
-								</MenuItem>
-							))} */}
-
 
 							{pages.map((page, id) => (
 								<Link key={id} to={page.href}>
