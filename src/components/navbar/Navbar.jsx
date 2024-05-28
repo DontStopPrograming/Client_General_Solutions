@@ -64,10 +64,25 @@ export const Navbar = () => {
 						</IconButton>
 						<Menu open={Boolean(anchorNav)} onClose={closeMenu} sx={{ display: { xs: 'flex', md: 'none' } }} >
 
-							<MenuItem> Home </MenuItem>
+							{/* <MenuItem> Home </MenuItem>
 							<MenuItem> Services </MenuItem>
 							<MenuItem> About </MenuItem>
-							<MenuItem> Contact </MenuItem>
+							<MenuItem> Contact </MenuItem> */}
+							{/* 
+							{pages.map((page, id) => (
+								<MenuItem key={id} onClick={closeMenu}>
+									<Link to={page.href}> {page.name} </Link>
+								</MenuItem>
+							))} */}
+
+
+							{pages.map((page, id) => (
+								<Link key={id} to={page.href}>
+									<MenuItem onClick={closeMenu}>
+										{page.name}
+									</MenuItem>
+								</Link>
+							))}
 
 						</Menu>
 					</Box>
