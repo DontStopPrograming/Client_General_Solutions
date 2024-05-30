@@ -1,0 +1,14 @@
+.container__contact {
+    padding: 50px;
+}
+
+.sub_email,
+.sub_phone,
+.sub_follow {
+
+    margin-bottom: 40px;
+    border-bottom: 1px solid black;
+    width: auto;
+
+
+}
