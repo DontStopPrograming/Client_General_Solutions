@@ -19,8 +19,14 @@
   --p-992: 1.5em;
   --p-min: 1em;
 
-  /* Standars Colors */
+  /* Standars Colors  (font: yeseva one, monserrat clasic)*/
   --dark: #111111;
+  --marine: #010812;
+  --super-dark: #000000;
+  --orange: #ff914d;
+  --white: #ffffff;
+
+
 
 }
 

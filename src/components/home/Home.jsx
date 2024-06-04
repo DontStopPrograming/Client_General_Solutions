@@ -6,6 +6,11 @@ export const Home = () => {
 		<>
 			<div className='home'>
 				<div className='container__home'>
+
+					<div className='img__home'>
+						<img src="" alt="engineer" />
+					</div>
+
 					<div className='title'>
 						<div className='title__home'>
 							<h1> SERVICIOS <br /> Y SOLUCIONES <br /> GENERALES </h1>
@@ -14,10 +19,6 @@ export const Home = () => {
 						<div className='subtitle__home'>
 							<p> EXPERTOS EN SEGURIDAD CIVIL </p>
 						</div>
-					</div>
-
-					<div className='img__home'>
-						<img src="" alt="engineer" />
 					</div>
 
 					<div className='img__home-down'>
