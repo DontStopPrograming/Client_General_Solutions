@@ -1,6 +1,12 @@
+.home {
+    background: var(--dark);
+    height: 96vh;
+}
+
 .container__home {
     padding-top: 5rem;
     border: 1px solid rgb(0, 255, 128);
+
 }
 
 .title {
@@ -11,6 +17,8 @@
     display: flex;
     justify-content: center;
     text-align: left;
+
+    font-size: var(--h1-max);
 
 }
 
@@ -43,11 +51,11 @@
         justify-content: center;
         text-align: left;
 
-        font-size: var(--h1-768);
+        font-size: var(--h1-min);
     }
 
     .subtitle__home p {
-        font-size: var(--p-768);
+        font-size: var(--p-min);
         margin-left: 0;
     }
 

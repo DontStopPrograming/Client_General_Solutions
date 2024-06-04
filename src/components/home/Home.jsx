@@ -4,23 +4,25 @@ import '../../../src/index.css'
 export const Home = () => {
 	return (
 		<>
-			<div className='container__home'>
-				<div className='title'>
-					<div className='title__home'>
-						<h1> SERVICIOS <br /> Y SOLUCIONES <br /> GENERALES </h1>
+			<div className='home'>
+				<div className='container__home'>
+					<div className='title'>
+						<div className='title__home'>
+							<h1> SERVICIOS <br /> Y SOLUCIONES <br /> GENERALES </h1>
+						</div>
+
+						<div className='subtitle__home'>
+							<p> EXPERTOS EN SEGURIDAD CIVIL </p>
+						</div>
 					</div>
 
-					<div className='subtitle__home'>
-						<p> EXPERTOS EN SEGURIDAD CIVIL </p>
+					<div className='img__home'>
+						<img src="" alt="engineer" />
 					</div>
-				</div>
 
-				<div className='img__home'>
-					<img src="" alt="engineer" />
-				</div>
-
-				<div className='img__home-down'>
-					<img src="" alt="arrow__down" />
+					<div className='img__home-down'>
+						<img src="" alt="arrow__down" />
+					</div>
 				</div>
 			</div>
 		</>
