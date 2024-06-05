@@ -4,7 +4,7 @@ import '../../../src/index.css'
 export const Home = () => {
 	return (
 		<>
-			<div className='home'>
+			<div className='home FATHER'>
 				<div className='container__home'>
 
 					<div className='img__home'>

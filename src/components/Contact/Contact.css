@@ -2,6 +2,10 @@
     padding: 50px;
 }
 
+.title_contact {
+    font-size: var(--h2);
+}
+
 .sub_email,
 .sub_phone,
 .sub_follow {

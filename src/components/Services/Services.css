@@ -1,3 +1,10 @@
+.services {}
+
+.FATHER {
+    background: var(--super-dark);
+    height: 96vh;
+}
+
 .container__services {
     display: grid;
     grid-template-columns: 1fr 400px 1fr;
@@ -10,16 +17,16 @@
 }
 
 .title_services {
+    font-size: var(--h2);
     grid-area: title_services;
 
     text-align: center;
     writing-mode: vertical-lr;
     text-orientation: upright;
     border: 1px solid rgb(0, 255, 128);
-    padding: -20px;
+    padding: 0 75%;
 }
 
-.title_services h2 {}
 
 .carousel_services {
     grid-area: carousel_services;
@@ -43,6 +50,12 @@
     text-align: left;
 }
 
+@media (max-width: 992px) {
+    .title_services {
+        padding: 0 20%;
+    }
+}
+
 @media (max-width: 768px) {
 
     .container__services {
@@ -56,7 +69,12 @@
             'phrase_services'
         ;
 
-        padding: 20px;
+        padding: 10px;
+    }
+
+    .carousel_services {
+        padding: 0 20px;
+        border: 1px solid rgb(255, 136, 0);
     }
 
     .phrase_services {
@@ -66,6 +84,8 @@
     .title_services {
         writing-mode: horizontal-tb;
         margin-left: 0;
+
+        padding: 0 20%;
         border: 1px solid rgb(0, 255, 128);
     }
 

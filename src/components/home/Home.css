@@ -2,9 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--super-dark);
     color: var(--white);
-    height: 96vh;
+
 }
 
 .container__home {

@@ -9,10 +9,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* H1 Size <h1 /> media screen */
+  /* H1 Size <h1 /> */
   --h1-max: 3.4em;
   --h1-992: 1.5em;
   --h1-min: 2.8em;
+
+  /* H2 size */
+  --h2: large;
 
   /* Size <p /> media screen */
   --p-max: 1.7em;

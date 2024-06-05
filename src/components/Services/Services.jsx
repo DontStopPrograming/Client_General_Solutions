@@ -130,120 +130,122 @@ export const Services = () => {
 
 	return (
 		<>
-			<div className='container__services'>
-				<div className='title_services'> <h2>SERVICES</h2> </div>
+			<div className='services FATHER'>
+				<div className='container__services'>
+					<div className='title_services'> <h2>SERVICES</h2> </div>
 
-				<div className='carousel_services'>
-					<Box sx={{ maxWidth: 400, flexGrow: 1 }}>
-						<Paper
-							square
-							elevation={0}
-							sx={{
-								display: 'flex',
-								alignItems: 'center',
-								height: 50,
-								pl: 2,
-								bgcolor: 'background.default',
+					<div className='carousel_services'>
+						<Box sx={{ maxWidth: 400, flexGrow: 1 }}>
+							<Paper
+								square
+								elevation={0}
+								sx={{
+									display: 'flex',
+									alignItems: 'center',
+									height: 50,
+									pl: 2,
+									bgcolor: 'background.default',
+								}}
+							>
+								<Typography>{images[activeStep].label}</Typography>
+							</Paper>
+							<AutoPlaySwipeableViews
+								axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+								index={activeStep}
+								onChangeIndex={handleStepChange}
+								enableMouseEvents
+							>
+								{images.map((step, index) => (
+									<div key={step.label}>
+										{Math.abs(activeStep - index) <= 2 ? (
+											<Box
+												component="img"
+												sx={{
+													height: 'auto',
+													display: 'block',
+													maxWidth: '100%',
+													overflow: 'hidden',
+													width: '100%',
+													cursor: 'pointer'
+												}}
+												src={step.imgPath}
+												alt={step.label}
+												onClick={() => handleImageClick(step)}
+											/>
+										) : null}
+									</div>
+								))}
+							</AutoPlaySwipeableViews>
+							<MobileStepper
+								steps={maxSteps}
+								position="static"
+								activeStep={activeStep}
+								nextButton={
+									<Button
+										size="small"
+										onClick={handleNext}
+										disabled={activeStep === maxSteps - 1}
+									>
+										Next
+										{theme.direction === 'rtl' ? (
+											<KeyboardArrowLeft />
+										) : (
+											<KeyboardArrowRight />
+										)}
+									</Button>
+								}
+								backButton={
+									<Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+										{theme.direction === 'rtl' ? (
+											<KeyboardArrowRight />
+										) : (
+											<KeyboardArrowLeft />
+										)}
+										Back
+									</Button>
+								}
+							/>
+						</Box>
+					</div>
+
+					<div className='modal_services'>
+
+						<Modal
+							aria-labelledby="transition-modal-title"
+							aria-describedby="transition-modal-description"
+							open={open}
+							onClose={handleClose}
+							closeAfterTransition
+							slots={{ backdrop: Backdrop }}
+							slotProps={{
+								backdrop: {
+									timeout: 500,
+								},
 							}}
 						>
-							<Typography>{images[activeStep].label}</Typography>
-						</Paper>
-						<AutoPlaySwipeableViews
-							axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-							index={activeStep}
-							onChangeIndex={handleStepChange}
-							enableMouseEvents
-						>
-							{images.map((step, index) => (
-								<div key={step.label}>
-									{Math.abs(activeStep - index) <= 2 ? (
-										<Box
-											component="img"
-											sx={{
-												height: 'auto',
-												display: 'block',
-												maxWidth: '100%',
-												overflow: 'hidden',
-												width: '100%',
-												cursor: 'pointer'
-											}}
-											src={step.imgPath}
-											alt={step.label}
-											onClick={() => handleImageClick(step)}
-										/>
-									) : null}
-								</div>
-							))}
-						</AutoPlaySwipeableViews>
-						<MobileStepper
-							steps={maxSteps}
-							position="static"
-							activeStep={activeStep}
-							nextButton={
-								<Button
-									size="small"
-									onClick={handleNext}
-									disabled={activeStep === maxSteps - 1}
-								>
-									Next
-									{theme.direction === 'rtl' ? (
-										<KeyboardArrowLeft />
-									) : (
-										<KeyboardArrowRight />
-									)}
-								</Button>
-							}
-							backButton={
-								<Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-									{theme.direction === 'rtl' ? (
-										<KeyboardArrowRight />
-									) : (
-										<KeyboardArrowLeft />
-									)}
-									Back
-								</Button>
-							}
-						/>
-					</Box>
+
+							<Fade in={open}>
+								<Box sx={style}>
+									<Typography id="transition-modal-title" variant="h6" component="h2">
+										{selectedImage?.modalContent?.title}
+									</Typography>
+									<Typography id="transition-modal-description" sx={{ mt: 2 }}>
+										{selectedImage?.modalContent?.description}
+									</Typography>
+									<Typography id="transition-modal-image" sx={{ mt: 2 }}>
+										<img src={selectedImage?.modalContent?.imgPath} alt={selectedImage?.label} />
+									</Typography>
+								</Box>
+							</Fade>
+
+						</Modal>
+					</div>
+
+					<div className='phrase_services'>
+						<h1> Your safety is <br /> our top priority </h1>
+					</div>
+
 				</div>
-
-				<div className='modal_services'>
-
-					<Modal
-						aria-labelledby="transition-modal-title"
-						aria-describedby="transition-modal-description"
-						open={open}
-						onClose={handleClose}
-						closeAfterTransition
-						slots={{ backdrop: Backdrop }}
-						slotProps={{
-							backdrop: {
-								timeout: 500,
-							},
-						}}
-					>
-
-						<Fade in={open}>
-							<Box sx={style}>
-								<Typography id="transition-modal-title" variant="h6" component="h2">
-									{selectedImage?.modalContent?.title}
-								</Typography>
-								<Typography id="transition-modal-description" sx={{ mt: 2 }}>
-									{selectedImage?.modalContent?.description}
-								</Typography>
-								<Typography id="transition-modal-image" sx={{ mt: 2 }}>
-									<img src={selectedImage?.modalContent?.imgPath} alt={selectedImage?.label} />
-								</Typography>
-							</Box>
-						</Fade>
-
-					</Modal>
-				</div>
-
-				<div className='phrase_services'>
-					<h1> Your safety is <br /> our top priority </h1>
-				</div>
-
 			</div>
 		</>
 	)
