@@ -1,3 +1,7 @@
+.contact {
+    height: 96vh;
+}
+
 .container__contact {
     padding: 50px;
 }
@@ -11,7 +15,7 @@
 .sub_follow {
 
     margin-bottom: 40px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--white);
     width: auto;
 
 
