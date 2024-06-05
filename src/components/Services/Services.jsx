@@ -130,7 +130,7 @@ export const Services = () => {
 
 	return (
 		<>
-			<div className='services FATHER'>
+			<div className='services father'>
 				<div className='container__services'>
 					<div className='title_services'> <h2>SERVICES</h2> </div>
 

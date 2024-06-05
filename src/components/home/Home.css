@@ -1,4 +1,6 @@
 .home {
+    height: 96vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +10,6 @@
 
 .container__home {
     display: flex;
-
     border: 1px solid rgb(0, 255, 128);
 
 

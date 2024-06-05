@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 500;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,15 +24,21 @@
 
   /* Standars Colors  (font: yeseva one, monserrat clasic)*/
   --dark: #111111;
-  --marine: #010812;
   --super-dark: #000000;
+
+  --marine: #010812;
+  --super-marine: #213547;
+
   --orange: #ff914d;
-  --white: #ffffff;
-
-
+  --white: #ffffffde;
 
 }
 
+/* Class FATHER */
+.father {
+  background: var(--super-dark);
+
+}
 
 a {
   font-weight: 500;

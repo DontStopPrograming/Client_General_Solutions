@@ -1,8 +1,6 @@
-.services {}
-
-.FATHER {
-    background: var(--super-dark);
+.services {
     height: 96vh;
+
 }
 
 .container__services {
@@ -14,6 +12,7 @@
     ;
     text-align: center;
     padding: 50px;
+
 }
 
 .title_services {
