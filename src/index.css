@@ -22,6 +22,8 @@
   --p-992: 1.5em;
   --p-min: 1em;
 
+  --nav-responsive: 1.2rem;
+
   /* Standars Colors  (font: yeseva one, monserrat clasic)*/
   --dark: #111111;
   --super-dark: #000000;
@@ -37,7 +39,7 @@
 /* Class FATHER */
 .father {
   background: var(--super-dark);
-
+  color: var(--super-marine);
 }
 
 a {

@@ -8,8 +8,26 @@
     }
 
     .MuiList-root {
-        background: red;
-        width: 100%;
+        position: absolute;
+
+        background: var(--marine);
+        width: 200px !important;
+        height: 200px !important;
+        border-radius: 10px;
+
+
 
     }
+
+    .MuiList-root li {
+        font-size: var(--nav-responsive);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
+    /* MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list */
 }

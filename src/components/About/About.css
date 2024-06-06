@@ -1,6 +1,6 @@
 .about {
     height: auto;
-    color: var(--white);
+
 
 }
 
@@ -28,6 +28,7 @@
 .title_about {
     font-size: var(--h2);
     margin-top: 50%;
+
 }
 
 .title_line {
