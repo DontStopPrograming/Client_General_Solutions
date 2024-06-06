@@ -5,21 +5,17 @@
 @media (max-width: 768px) {
     .bar {
         max-width: 100%;
+
     }
 
     .MuiList-root {
-        position: absolute;
-
         background: var(--marine);
-        width: 200px !important;
-        height: 200px !important;
-        border-radius: 10px;
-
-
+        width: auto !important;
 
     }
 
     .MuiList-root li {
+        color: var(--orange);
         font-size: var(--nav-responsive);
         display: flex;
         flex-direction: column;
@@ -29,5 +25,6 @@
 
     }
 
+    /* MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root */
     /* MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list */
 }

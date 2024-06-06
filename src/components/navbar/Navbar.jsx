@@ -38,7 +38,7 @@ export const Navbar = () => {
 
 	return (
 		<>
-			<AppBar position="static" className='bar' sx={{ boxSizing: 'border-box', padding: '0', margin: '0', maxWidth: '100%' }}>
+			<AppBar position="static" className='bar' sx={{ boxSizing: 'border-box', padding: '0', margin: '0', maxWidth: '100%', background: 'var(--marine)' }}>
 				<Toolbar variant="dense">
 
 					<Typography variant="h6" color="inherit" component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -58,11 +58,13 @@ export const Navbar = () => {
 						))}
 					</Box>
 
-					<Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+					<Box sx={{ display: { xs: 'flex', md: 'none', color: 'var(--orange)' } }}>
 						<IconButton size='large' edge='start' color='inherit' onClick={openMenu}>
 							<MenuIcon />
 						</IconButton>
-						<Menu open={Boolean(anchorNav)} onClose={closeMenu} sx={{ display: { xs: 'flex', md: 'none' } }} >
+						<Menu open={Boolean(anchorNav)} onClose={closeMenu} sx={{
+							display: { xs: 'flex', md: 'none' }
+						}} >
 
 							{/* <MenuItem> Home </MenuItem>
 							<MenuItem> Services </MenuItem>
@@ -85,7 +87,7 @@ export const Navbar = () => {
 					</IconButton>
 
 				</Toolbar>
-			</AppBar>
+			</AppBar >
 		</>
 	)
 }
