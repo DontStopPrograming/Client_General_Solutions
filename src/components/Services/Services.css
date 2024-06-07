@@ -22,7 +22,7 @@
     text-align: center;
     writing-mode: vertical-lr;
     text-orientation: upright;
-    border: 1px solid rgb(0, 255, 128);
+    /* border: 1px solid rgb(0, 255, 128); */
     padding: 0 75%;
 }
 
@@ -31,7 +31,7 @@
     grid-area: carousel_services;
 
     padding: .5px;
-    border: 1px solid rgb(255, 136, 0);
+    /* border: 1px solid rgb(255, 136, 0); */
 }
 
 
@@ -39,7 +39,7 @@
     grid-area: phrase_services;
 
     text-align: left;
-    border: 1px solid rgb(119, 0, 255);
+    /* border: 1px solid rgb(119, 0, 255); */
 
 }
 
@@ -73,7 +73,7 @@
 
     .carousel_services {
         padding: 0 20px;
-        border: 1px solid rgb(255, 136, 0);
+
     }
 
     .phrase_services {
@@ -85,7 +85,7 @@
         margin-left: 0;
 
         padding: 0 20%;
-        border: 1px solid rgb(0, 255, 128);
+
     }
 
     .phrase_services h1 {

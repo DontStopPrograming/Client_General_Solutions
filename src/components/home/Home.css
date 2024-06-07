@@ -4,13 +4,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--super-marine);
+
 
 }
 
 .container__home {
     display: flex;
-    border: 1px solid rgb(0, 255, 128);
+    /* border: 1px solid rgb(0, 255, 128); */
 
 
 }
@@ -39,7 +39,7 @@
     width: 300px;
     height: 300px;
     margin-top: 30%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 20px;
 }
 
@@ -48,7 +48,7 @@
     height: 100px;
     margin-top: 700px;
 
-    border: 1px solid rgb(255, 174, 0);
+    /* border: 1px solid rgb(255, 174, 0); */
 }
 
 @media (max-width: 768px) {

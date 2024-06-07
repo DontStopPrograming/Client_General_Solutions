@@ -8,6 +8,7 @@
 
 .title_contact {
     font-size: var(--h2);
+    color: var(--orange)
 }
 
 .sub_email,
@@ -15,7 +16,7 @@
 .sub_follow {
 
     margin-bottom: 40px;
-    border-bottom: 1px solid var(--white);
+    border-bottom: 1px solid var(--orange);
     width: auto;
 
 

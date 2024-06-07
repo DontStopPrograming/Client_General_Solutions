@@ -21,26 +21,26 @@
 
     writing-mode: vertical-lr;
     transform: rotate(180deg);
-    border: 1px solid blueviolet;
+    /* border: 1px solid blueviolet; */
     padding: 50px;
 }
 
 .title_about {
     font-size: var(--h2);
     margin-top: 50%;
-
+    color: var(--orange);
 }
 
 .title_line {
     width: 2px;
     height: 100px;
-    background-color: #ffffff !important;
+    background-color: var(--orange) !important;
     display: inline-block;
 
 }
 
 .phrase_about {
-    border: 1px solid rgb(43, 174, 226);
+    /* border: 1px solid rgb(43, 174, 226); */
 }
 
 .phrase_about_years {
