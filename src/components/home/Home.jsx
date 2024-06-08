@@ -1,6 +1,9 @@
 import './Home.css';
 import '../../../src/index.css'
 
+import architect from '../../assets/architect.png'
+import arrow__down from '../../assets/arrow-down.png'
+
 export const Home = () => {
 	return (
 		<>
@@ -8,7 +11,7 @@ export const Home = () => {
 				<div className='container__home'>
 
 					<div className='img__home'>
-						<img src="" alt="engineer" />
+						<img src={architect} alt="engineer" />
 					</div>
 
 					<div className='title'>
@@ -22,7 +25,7 @@ export const Home = () => {
 					</div>
 
 					<div className='img__home-down'>
-						<img src="" alt="arrow__down" />
+						<img src={arrow__down} alt="arrow__down" />
 					</div>
 				</div>
 			</div>
