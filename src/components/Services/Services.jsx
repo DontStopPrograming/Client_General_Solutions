@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import './Services.css';
 
+import professional from '../../assets/professional.jpeg'
+import diagnostic from '../../assets/diagnostic.jpeg'
+import surveying from '../../assets/surveying.jpeg'
+import security from '../../assets/security.jpeg'
+
 /* These import statements are importing various components and utilities from Material-UI and
 react-swipeable-views libraries. Here is a breakdown of what each import is doing: */
 import { useTheme } from '@mui/material/styles';
@@ -19,6 +24,7 @@ of what each component does: */
 import Backdrop from '@mui/material/Backdrop';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
+import { Padding } from '@mui/icons-material';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -27,7 +33,8 @@ const style = {
 	top: '50%',
 	left: '50%',
 	transform: 'translate(-50%, -50%)',
-	width: 400,
+	width: 300,
+	height: 300,
 	bgcolor: 'background.paper',
 	border: '2px solid #000',
 	boxShadow: 24,
@@ -38,47 +45,43 @@ const style = {
 object in the array represents a specific image and includes the following properties: */
 const images = [
 	{
-		label: 'San Francisco – Oakland Bay Bridge, United States',
+		label: 'PROFESSIONALS',
 		imgPath:
-			'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+			professional,
 		modalContent: {
-			title: 'San Francisco – Oakland Bay Bridge',
-			description: 'This is the description for the San Francisco – Oakland Bay Bridge image.',
-			imgPath:
-				'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+			title: 'Expert Preparation of Technical Documentation',
+			description: 'Professional Technical Inspection by the National Institute of Civil Defense INDECI',
+
 		}
 	},
 	{
-		label: 'Bird',
+		label: 'DIAGNOSTIC',
 		imgPath:
-			'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+			diagnostic,
 		modalContent: {
-			title: 'Bird',
-			description: 'This is the description for the Bird image.',
-			imgPath:
-				'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+			title: 'Specialty Diagnostic Assessment and Recommendations',
+			description: 'Physical Implementation in Compliance with National Building Regulations, National Electrical Code, and Standards',
+
 		}
 	},
 	{
-		label: 'Bali, Indonesia',
+		label: 'INSTALLATIONS',
 		imgPath:
-			'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
+			surveying,
 		modalContent: {
-			title: 'Bali, Indonesia',
-			description: 'This is the description for the Bali, Indonesia image.',
-			imgPath:
-				'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
+			title: 'Surveying and Updating of Plans',
+			description: 'Location, Architectural Design, Security Measures, Electrical, and Plumbing Installations',
+
 		}
 	},
 	{
-		label: 'Goč, Serbia',
+		label: 'SECURITY',
 		imgPath:
-			'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+			security,
 		modalContent: {
-			title: 'Goč, Serbia',
-			description: 'This is the description for the Goč, Serbia image.',
-			imgPath:
-				'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+			title: 'Security Plan Design and Development',
+			description: 'Risk Assessment, Response Plans, and Contingency Planning',
+
 		}
 	},
 ];
@@ -166,6 +169,7 @@ export const Services = () => {
 													maxWidth: '100%',
 													overflow: 'hidden',
 													width: '100%',
+													height: '300px',
 													cursor: 'pointer'
 												}}
 												src={step.imgPath}
@@ -233,7 +237,11 @@ export const Services = () => {
 										{selectedImage?.modalContent?.description}
 									</Typography>
 									<Typography id="transition-modal-image" sx={{ mt: 2 }}>
-										<img src={selectedImage?.modalContent?.imgPath} alt={selectedImage?.label} />
+										<img
+										// src={selectedImage?.modalContent?.imgPath}
+										// alt={selectedImage?.label}
+
+										/>
 									</Typography>
 								</Box>
 							</Fade>

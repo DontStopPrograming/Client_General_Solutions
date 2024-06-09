@@ -30,7 +30,7 @@ export const About = () => {
 						</div>
 					</section>
 
-					<section className='section_two_about'>
+					{/* <section className='section_two_about'>
 						<div>
 							<h2> Expert Preparation of Technical Documentation </h2>
 							<p> Professional Technical Inspection by the National Institute of Civil Defense INDECI</p>
@@ -51,7 +51,7 @@ export const About = () => {
 							<p> Risk Assessment, Response Plans, and Contingency Planning </p>
 						</div>
 
-					</section>
+					</section> */}
 
 
 				</div>

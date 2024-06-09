@@ -41,7 +41,7 @@
     width: 300px;
     height: 300px;
     margin-top: 150px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 20px;
 }
 
@@ -58,7 +58,7 @@
     margin-top: 700px;
     padding: 20px;
 
-    border: 1px solid rgb(255, 174, 0);
+    /* border: 1px solid rgb(255, 174, 0); */
 }
 
 
