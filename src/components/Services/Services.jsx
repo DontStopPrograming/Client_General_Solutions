@@ -34,9 +34,11 @@ const style = {
 	left: '50%',
 	transform: 'translate(-50%, -50%)',
 	width: 300,
-	height: 300,
-	bgcolor: 'background.paper',
-	border: '2px solid #000',
+	height: 200,
+	bgcolor: '#010812',
+	color: '#ffffffde',
+	// bgcolor: 'background.paper',
+	border: '2px solid #ff914d',
 	boxShadow: 24,
 	p: 4,
 };
@@ -147,7 +149,10 @@ export const Services = () => {
 									alignItems: 'center',
 									height: 50,
 									pl: 2,
-									bgcolor: 'background.default',
+									bgcolor: 'black',
+									color: '#ff914d',
+									border: '1px solid #ff914d',
+									// bgcolor: 'background.default',
 								}}
 							>
 								<Typography>{images[activeStep].label}</Typography>
@@ -189,6 +194,9 @@ export const Services = () => {
 										size="small"
 										onClick={handleNext}
 										disabled={activeStep === maxSteps - 1}
+										sx={{
+											color: '#ff914d',
+										}}
 									>
 										Next
 										{theme.direction === 'rtl' ? (
@@ -199,7 +207,10 @@ export const Services = () => {
 									</Button>
 								}
 								backButton={
-									<Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+									<Button size="small" onClick={handleBack} disabled={activeStep === 0}
+										sx={{
+											color: '#ff914d',
+										}}>
 										{theme.direction === 'rtl' ? (
 											<KeyboardArrowRight />
 										) : (
@@ -226,6 +237,7 @@ export const Services = () => {
 									timeout: 500,
 								},
 							}}
+
 						>
 
 							<Fade in={open}>
