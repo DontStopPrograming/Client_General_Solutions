@@ -30,28 +30,28 @@ export const About = () => {
 						</div>
 					</section>
 
-					{/* <section className='section_two_about'>
-						<div>
-							<h2> Expert Preparation of Technical Documentation </h2>
-							<p> Professional Technical Inspection by the National Institute of Civil Defense INDECI</p>
+					<section className='section_two_about'>
+						<div className='card_about'>
+							<h2> Licensing and Certifications </h2>
+							<p> Our team helps businesses obtain necessary licenses and certifications, ensuring safe and efficient operations.</p>
 						</div>
 
-						<div>
-							<h2> Specialty Diagnostic Assessment and Recommendations </h2>
-							<p> Physical Implementation in Compliance with National Building Regulations, National Electrical Code, and Standards</p>
+						<div className='card_about'>
+							<h2> Streamlined Licensing Process </h2>
+							<p> Simplify the process, making it quick and efficient. Our consultants collaborate with you to overcome obstacles, ensuring a seamless experience.</p>
 						</div>
 
-						<div>
-							<h2> Surveying and Updating of Plans </h2>
-							<p> Location, Architectural Design, Security Measures, Electrical, and Plumbing Installations </p>
+						<div className='card_about'>
+							<h2> Civil Security and Protection </h2>
+							<p> Prioritize your safety and protection. Our experts work closely with you to ensure a secure and confidential process, giving you peace of mind.</p>
 						</div>
 
-						<div>
-							<h2> Security Plan Design and Development</h2>
-							<p> Risk Assessment, Response Plans, and Contingency Planning </p>
+						<div className='card_about'>
+							<h2> Client-Centric Approach </h2>
+							<p> Dedicated to your success. Our consultants provide exceptional service to help you achieve your goals. We support you every step, ensuring the best outcome.</p>
 						</div>
 
-					</section> */}
+					</section>
 
 
 				</div>
