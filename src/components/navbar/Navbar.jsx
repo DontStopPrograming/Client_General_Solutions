@@ -41,7 +41,7 @@ export const Navbar = () => {
 			<AppBar position="static" className='bar' sx={{ boxSizing: 'border-box', padding: '0', margin: '0', maxWidth: '100%', background: 'var(--marine)' }}>
 				<Toolbar variant="dense">
 
-					<Typography variant="h6" color="inherit" component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+					<Typography variant="h6" color="inherit" component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', color: 'var(--orange)' } }}>
 						JYM
 					</Typography>
 					<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -51,8 +51,10 @@ export const Navbar = () => {
 						<Button color='inherit'> Login</Button> */}
 						{pages.map((page, id) => (
 
-							<Link key={id} to={page.href}>
-								<Button color='inherit'> {page.name} </Button>
+							<Link key={id} to={page.href} >
+								<Button color='inherit'
+									sx={{ color: 'var(--orange)' }}
+								> {page.name} </Button>
 							</Link>
 
 						))}
@@ -73,7 +75,7 @@ export const Navbar = () => {
 
 							{pages.map((page, id) => (
 								<Link key={id} to={page.href}>
-									<MenuItem onClick={closeMenu}>
+									<MenuItem onClick={closeMenu} >
 										{page.name}
 									</MenuItem>
 								</Link>
