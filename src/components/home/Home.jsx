@@ -4,7 +4,30 @@ import '../../../src/index.css'
 import architect from '../../assets/architect.png'
 import arrow__down from '../../assets/arrow-down.png'
 
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react'
+
 export const Home = () => {
+
+	const navigate = useNavigate()
+
+	const handleClickNext = () => {
+		navigate('/services')
+	}
+
+	const handleWheel = (e) => {
+		if (e.deltaY > 0) {
+			handleClickNext()
+		}
+	}
+
+	useEffect(() => {
+		window.addEventListener('wheel', handleWheel)
+		return () => {
+			window.removeEventListener('wheel', handleWheel)
+		}
+	})
+
 	return (
 		<>
 			<div className='home father'>
@@ -25,7 +48,7 @@ export const Home = () => {
 					</div>
 
 					<div className='img__home-down'>
-						<img src={arrow__down} alt="arrow__down" />
+						<img src={arrow__down} onClick={handleClickNext} alt="arrow__down" />
 					</div>
 				</div>
 			</div>
