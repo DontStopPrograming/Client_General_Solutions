@@ -15,6 +15,10 @@
 
 }
 
+.subtitle__home p {
+    font-weight: 600;
+}
+
 .title {
     display: flex;
     flex-direction: column;
@@ -57,6 +61,8 @@
     height: 100px;
     margin-top: 700px;
     padding: 20px;
+
+    cursor: pointer;
 
     /* border: 1px solid rgb(255, 174, 0); */
 }

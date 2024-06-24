@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+
 :root {
-  font-family: "Montserrat", sans-serif;
-  line-height: 1.5;
-  font-weight: 500;
+
   color-scheme: light dark;
 
   font-synthesis: none;
@@ -33,6 +33,12 @@
 
   --orange: #ff914d;
   --white: #ffffffde;
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
 
 }
 
