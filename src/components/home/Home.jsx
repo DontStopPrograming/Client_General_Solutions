@@ -5,7 +5,7 @@ import architect from '../../assets/architect.png'
 import arrow__down from '../../assets/arrow-down.png'
 
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
 export const Home = () => {
 
@@ -15,18 +15,18 @@ export const Home = () => {
 		navigate('/services')
 	}
 
-	const handleWheel = (e) => {
-		if (e.deltaY > 0) {
-			handleClickNext()
-		}
-	}
+	// const handleWheel = (e) => {
+	// 	if (e.deltaY > 0) {
+	// 		handleClickNext()
+	// 	}
+	// }
 
-	useEffect(() => {
-		window.addEventListener('wheel', handleWheel)
-		return () => {
-			window.removeEventListener('wheel', handleWheel)
-		}
-	})
+	// useEffect(() => {
+	// 	window.addEventListener('wheel', handleWheel)
+	// 	return () => {
+	// 		window.removeEventListener('wheel', handleWheel)
+	// 	}
+	// })
 
 	return (
 		<>
