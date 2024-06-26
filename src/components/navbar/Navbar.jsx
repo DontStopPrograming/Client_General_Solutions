@@ -39,7 +39,7 @@ export const Navbar = () => {
 	}
 
 	const handleScroll = (e) => {
-		if (e.deltaY > 0) {
+		if (e.deltaY > 0 && window.scrollY + window.innerHeight >= document.body.offsetHeight) {
 			switch (window.location.pathname) {
 				case '/home':
 					navigate('/services')
@@ -48,22 +48,22 @@ export const Navbar = () => {
 					navigate('/about')
 					break
 				case '/about':
-					if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
-						navigate('/contact')
-					}
+
+					navigate('/contact')
+
 					break
 				default:
 					break
 			}
-		} else if (e.deltaY < 0) {
+		} else if (e.deltaY < 0 && window.scrollY <= 0) {
 			switch (window.location.pathname) {
 				case '/services':
 					navigate('/home')
 					break
 				case '/about':
-					if (window.scrollY <= 0) {
-						navigate('/services')
-					}
+
+					navigate('/services')
+
 					break
 				case '/contact':
 					navigate('/about')
