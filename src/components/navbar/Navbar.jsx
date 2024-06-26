@@ -1,10 +1,10 @@
 import './Navbar.css';
 
 // using react-router-dom
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 //HOOKS
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Estructure of @MUI
 import MenuIcon from '@mui/icons-material/Menu';
@@ -27,6 +27,8 @@ const pages = [
 ]
 
 export const Navbar = () => {
+	const navigate = useNavigate()
+
 	const [anchorNav, setAnchorNav] = useState(null)
 	const openMenu = (e) => {
 		setAnchorNav(e.currentTarget)
@@ -35,6 +37,48 @@ export const Navbar = () => {
 	const closeMenu = () => {
 		setAnchorNav(null)
 	}
+
+	const handleScroll = (e) => {
+		if (e.deltaY > 0) {
+			switch (window.location.pathname) {
+				case '/home':
+					navigate('/services')
+					break
+				case '/services':
+					navigate('/about')
+					break
+				case '/about':
+					if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+						navigate('/contact')
+					}
+					break
+				default:
+					break
+			}
+		} else if (e.deltaY < 0) {
+			switch (window.location.pathname) {
+				case '/services':
+					navigate('/home')
+					break
+				case '/about':
+					navigate('/services')
+					break
+				case '/contact':
+					navigate('/about')
+					break
+				default:
+					break
+			}
+		}
+	}
+
+	useEffect(() => {
+		window.addEventListener('wheel', handleScroll)
+		return () => {
+			window.removeEventListener('wheel', handleScroll)
+		}
+	}, [handleScroll])
+
 
 	return (
 		<>
