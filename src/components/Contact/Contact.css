@@ -4,6 +4,7 @@
 
 .container__contact {
     padding: 50px;
+    margin-left: 100px;
 }
 
 .title_contact {
@@ -15,9 +16,15 @@
 .sub_phone,
 .sub_follow {
 
-    margin-bottom: 40px;
+    margin-bottom: 70px;
     border-bottom: 1px solid var(--orange);
     width: auto;
+}
 
+@media (max-width: 768px) {
 
+    .container__contact {
+        padding: 50px;
+        margin-left: 0;
+    }
 }
