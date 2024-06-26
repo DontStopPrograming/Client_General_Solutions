@@ -39,11 +39,11 @@ export const Home = () => {
 
 					<div className='title'>
 						<div className='title__home'>
-							<h1> SERVICIOS <br /> Y SOLUCIONES <br /> GENERALES </h1>
+							<h1> GENERAL <br /> SERVICES &<br />  SOLUTIONS </h1>
 						</div>
 
 						<div className='subtitle__home'>
-							<p> EXPERTOS EN SEGURIDAD CIVIL </p>
+							<p> EXPERTS IN CIVIL SECURITY </p>
 						</div>
 					</div>
 

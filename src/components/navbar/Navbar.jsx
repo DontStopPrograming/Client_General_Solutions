@@ -61,7 +61,9 @@ export const Navbar = () => {
 					navigate('/home')
 					break
 				case '/about':
-					navigate('/services')
+					if (window.scrollY <= 0) {
+						navigate('/services')
+					}
 					break
 				case '/contact':
 					navigate('/about')

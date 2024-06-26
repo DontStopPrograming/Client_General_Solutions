@@ -33,7 +33,7 @@
 
 .title_line {
     width: 2px;
-    height: 100px;
+    height: 150px;
     background-color: var(--orange) !important;
     display: inline-block;
 
@@ -111,7 +111,7 @@
     }
 
     .title_line {
-        width: 100px;
+        width: 150px;
         height: 2px;
         background-color: black;
         display: inline-block;
