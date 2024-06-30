@@ -24,7 +24,7 @@ of what each component does: */
 import Backdrop from '@mui/material/Backdrop';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import { Padding } from '@mui/icons-material';
+
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 

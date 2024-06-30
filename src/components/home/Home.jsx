@@ -5,28 +5,57 @@ import architect from '../../assets/architect.png'
 import arrow__down from '../../assets/arrow-down.png'
 
 import { useNavigate } from 'react-router-dom';
-// import { useEffect } from 'react'
+
+import { gsap } from 'gsap'
+import { useRef, useEffect } from 'react'
 
 export const Home = () => {
+	add
 
+	/* Creates an interactive effect on an image element using the GSAP library*/
+	const imageRef = useRef(null)
+
+	useEffect(() => {
+		const image = imageRef.current;
+
+		const handleMouseMove = (e) => {
+			const rect = image.getBoundingClientRect();
+			const x = e.clientX - rect.left;
+			const y = e.clientY - rect.top;
+
+			gsap.to(image, {
+				rotationY: (x - rect.width / 2) / 30,
+				rotationX: (y - rect.height / 2) / 30,
+				duration: 0,
+				ease: "elastic",
+			});
+		};
+
+		const handleMouseLeave = () => {
+			gsap.to(image, {
+				rotationY: 0,
+				rotationX: 0,
+				duration: 0.5,
+				ease: "elastic",
+			});
+		};
+
+		window.addEventListener('mousemove', handleMouseMove);
+		window.addEventListener('mouseleave', handleMouseLeave);
+
+		return () => {
+			window.removeEventListener('mousemove', handleMouseMove);
+			window.removeEventListener('mouseleave', handleMouseLeave);
+		};
+	}, []);
+
+
+	/* Is a hook that returns a navigate function */
 	const navigate = useNavigate()
 
 	const handleClickNext = () => {
 		navigate('/services')
 	}
-
-	// const handleWheel = (e) => {
-	// 	if (e.deltaY > 0) {
-	// 		handleClickNext()
-	// 	}
-	// }
-
-	// useEffect(() => {
-	// 	window.addEventListener('wheel', handleWheel)
-	// 	return () => {
-	// 		window.removeEventListener('wheel', handleWheel)
-	// 	}
-	// })
 
 	return (
 		<>
@@ -34,7 +63,11 @@ export const Home = () => {
 				<div className='container__home'>
 
 					<div className='img__home'>
-						<img src={architect} alt="engineer" />
+						<img src={architect}
+							alt="engineer"
+							ref={imageRef}
+
+						/>
 					</div>
 
 					<div className='title'>

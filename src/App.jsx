@@ -2,6 +2,7 @@
 
 /* The code snippet is importing specific components and modules from different files and libraries. */
 import { Navbar, Home, Services, About, Contact } from './components'
+// import { Animation } from '../src/components/Utils'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <>
       <Router>
         <Navbar />
+        {/* <Animation /> */}
         <Routes>
           <Route path='/' element={<Home />}> </Route>
           <Route path='/home' element={<Home />}> </Route>
@@ -24,5 +26,3 @@ function App() {
 }
 
 export default App
-
-

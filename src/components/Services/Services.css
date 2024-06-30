@@ -30,7 +30,7 @@
 .carousel_services {
     grid-area: carousel_services;
     margin-top: 50px;
-    background: black;
+
     /* border: 1px solid rgb(255, 136, 0); */
 }
 
