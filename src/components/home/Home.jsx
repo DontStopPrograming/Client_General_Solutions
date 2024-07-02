@@ -10,8 +10,6 @@ import { gsap } from 'gsap'
 import { useRef, useEffect } from 'react'
 
 export const Home = () => {
-	add
-
 	/* Creates an interactive effect on an image element using the GSAP library*/
 	const imageRef = useRef(null)
 
@@ -54,25 +52,43 @@ export const Home = () => {
 	const navigate = useNavigate()
 
 	const handleClickNext = () => {
-		navigate('/services')
+		const tl = gsap.timeline()
+		tl.to('.home', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+			.call(() => {
+				navigate('/services')
+			})
+			.to('.services', { duration: 0.5, opacity: 1, ease: 'power2.in' })
 	}
+
+	const handleScroll = (e) => {
+		if (
+			e.deltaY > 0 &&
+			document.documentElement.scrollHeight -
+			document.documentElement.clientHeight <=
+			document.documentElement.scrollTop + 1
+		) {
+			handleClickNext();
+		}
+	}
+
+	useEffect(() => {
+		window.addEventListener('wheel', handleScroll)
+		return () => {
+			window.removeEventListener('wheel', handleScroll)
+		}
+	}, [handleScroll])
 
 	return (
 		<>
 			<div className='home father'>
 				<div className='container__home'>
-
 					<div className='img__home'>
-						<img src={architect}
-							alt="engineer"
-							ref={imageRef}
-
-						/>
+						<img src={architect} alt="engineer" ref={imageRef} />
 					</div>
 
 					<div className='title'>
 						<div className='title__home'>
-							<h1> GENERAL <br /> SERVICES &<br />  SOLUTIONS </h1>
+							<h1> GENERAL <br /> SERVICES &<br /> SOLUTIONS </h1>
 						</div>
 
 						<div className='subtitle__home'>
@@ -87,5 +103,4 @@ export const Home = () => {
 			</div>
 		</>
 	);
-};
-
+}

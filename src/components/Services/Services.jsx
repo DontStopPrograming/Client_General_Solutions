@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { useState } from 'react'
 import './Services.css';
 
@@ -24,6 +26,7 @@ of what each component does: */
 import Backdrop from '@mui/material/Backdrop';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
+
 
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -90,6 +93,8 @@ const images = [
 
 export const Services = () => {
 
+	const navigate = useNavigate()
+
 	const theme = useTheme();
 	const [activeStep, setActiveStep] = useState(0);
 	const maxSteps = images.length;
@@ -131,6 +136,16 @@ export const Services = () => {
 	 */
 	const handleClose = () => {
 		setOpen(false)
+	}
+
+
+	const handleClickPrev = () => {
+		const tl = gsap.timeline()
+		tl.to('.services', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+			.call(() => {
+				navigate('/home')
+			})
+			.to('.home', { durantion: 0.5, opacity: 1, ease: 'power2.in' })
 	}
 
 	return (
@@ -265,7 +280,12 @@ export const Services = () => {
 						<h1> Your safety is <br /> our top priority </h1>
 					</div>
 
+
 				</div>
+
+
+
+
 			</div>
 		</>
 	)
