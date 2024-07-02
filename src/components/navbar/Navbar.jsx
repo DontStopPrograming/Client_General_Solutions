@@ -6,6 +6,10 @@ import { Link, useNavigate } from 'react-router-dom'
 //HOOKS
 import { useState, useEffect } from 'react';
 
+// GSAP
+import { gsap } from 'gsap'
+
+
 // Estructure of @MUI
 import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
@@ -42,15 +46,28 @@ export const Navbar = () => {
 		if (e.deltaY > 0 && window.scrollY + window.innerHeight >= document.body.offsetHeight) {
 			switch (window.location.pathname) {
 				case '/home':
-					navigate('/services')
+					const tl1 = gsap.timeline()
+					tl1.to('.home', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+						.call(() => {
+							navigate('/services')
+						})
+						.to('.services', { duration: 0.5, opacity: 1, ease: 'power2.in' })
 					break
 				case '/services':
-					navigate('/about')
+					const tl2 = gsap.timeline()
+					tl2.to('.services', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+						.call(() => {
+							navigate('/about')
+						})
+						.to('.about', { duration: 0.5, opacity: 1, ease: 'power2.in' })
 					break
 				case '/about':
-
-					navigate('/contact')
-
+					const tl3 = gsap.timeline()
+					tl3.to('.about', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+						.call(() => {
+							navigate('/contact')
+						})
+						.to('.contact', { duration: 0.5, opacity: 1, ease: 'power2.in' })
 					break
 				default:
 					break
@@ -58,15 +75,28 @@ export const Navbar = () => {
 		} else if (e.deltaY < 0 && window.scrollY <= 0) {
 			switch (window.location.pathname) {
 				case '/services':
-					navigate('/home')
+					const tl4 = gsap.timeline()
+					tl4.to('.services', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+						.call(() => {
+							navigate('/home')
+						})
+						.to('.home', { duration: 0.5, opacity: 1, ease: 'power2.in' })
 					break
 				case '/about':
-
-					navigate('/services')
-
+					const tl5 = gsap.timeline()
+					tl5.to('.about', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+						.call(() => {
+							navigate('/services')
+						})
+						.to('.services', { duration: 0.5, opacity: 1, ease: 'power2.in' })
 					break
 				case '/contact':
-					navigate('/about')
+					const tl6 = gsap.timeline()
+					tl6.to('.contact', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+						.call(() => {
+							navigate('/about')
+						})
+						.to('.about', { duration: 0.5, opacity: 1, ease: 'power2.in' })
 					break
 				default:
 					break

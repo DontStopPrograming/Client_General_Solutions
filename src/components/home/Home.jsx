@@ -58,6 +58,7 @@ export const Home = () => {
 				navigate('/services')
 			})
 			.to('.services', { duration: 0.5, opacity: 1, ease: 'power2.in' })
+
 	}
 
 	const handleScroll = (e) => {
@@ -67,7 +68,7 @@ export const Home = () => {
 			document.documentElement.clientHeight <=
 			document.documentElement.scrollTop + 1
 		) {
-			handleClickNext();
+			handleClickNext()
 		}
 	}
 

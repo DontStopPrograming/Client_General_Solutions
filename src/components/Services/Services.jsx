@@ -139,15 +139,6 @@ export const Services = () => {
 	}
 
 
-	const handleClickPrev = () => {
-		const tl = gsap.timeline()
-		tl.to('.services', { duration: 0.5, opacity: 0, ease: 'power2.out' })
-			.call(() => {
-				navigate('/home')
-			})
-			.to('.home', { durantion: 0.5, opacity: 1, ease: 'power2.in' })
-	}
-
 	return (
 		<>
 			<div className='services father'>
