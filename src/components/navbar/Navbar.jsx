@@ -34,6 +34,7 @@ export const Navbar = () => {
 	const navigate = useNavigate()
 
 	const [anchorNav, setAnchorNav] = useState(null)
+
 	const openMenu = (e) => {
 		setAnchorNav(e.currentTarget)
 	}
@@ -46,63 +47,69 @@ export const Navbar = () => {
 		if (e.deltaY > 0 && window.scrollY + window.innerHeight >= document.body.offsetHeight) {
 			switch (window.location.pathname) {
 				case '/home':
-					const tl1 = gsap.timeline()
-					tl1.to('.home', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+					const tl1 = gsap.timeline();
+					tl1.to(['.home', '.bar'], { duration: 0.5, opacity: 0, ease: 'power2.out' })
+						.to('body', { duration: 0.2, background: 'var(--marine)', ease: 'power2.out' })
 						.call(() => {
-							navigate('/services')
+							navigate('/services');
 						})
-						.to('.services', { duration: 0.5, opacity: 1, ease: 'power2.in' })
-					break
+						.to(['.services', '.bar'], { duration: 0.5, opacity: 1, ease: 'power2.in', y: '0%' });
+					break;
 				case '/services':
-					const tl2 = gsap.timeline()
-					tl2.to('.services', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+					const tl2 = gsap.timeline();
+					tl2.to(['.services', '.bar'], { duration: 0.5, opacity: 0, ease: 'power2.out' })
+						.to('body', { duration: 0.2, background: 'var(--marine)', ease: 'power2.out' })
 						.call(() => {
-							navigate('/about')
+							navigate('/about');
 						})
-						.to('.about', { duration: 0.5, opacity: 1, ease: 'power2.in' })
-					break
+						.to(['.about', '.bar'], { duration: 0.5, opacity: 1, ease: 'power2.in', y: '0%' });
+					break;
 				case '/about':
-					const tl3 = gsap.timeline()
-					tl3.to('.about', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+					const tl3 = gsap.timeline();
+					tl3.to(['.about', '.bar'], { duration: 0.5, opacity: 0, ease: 'power2.out' })
+						.to('body', { duration: 0.2, background: 'var(--marine)', ease: 'power2.out' })
 						.call(() => {
-							navigate('/contact')
+							navigate('/contact');
 						})
-						.to('.contact', { duration: 0.5, opacity: 1, ease: 'power2.in' })
-					break
+						.to(['.contact', '.bar'], { duration: 0.5, opacity: 1, ease: 'power2.in', y: '0%' });
+					break;
 				default:
-					break
+					break;
 			}
 		} else if (e.deltaY < 0 && window.scrollY <= 0) {
 			switch (window.location.pathname) {
 				case '/services':
-					const tl4 = gsap.timeline()
-					tl4.to('.services', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+					const tl4 = gsap.timeline();
+					tl4.to(['.services', '.bar'], { duration: 0.5, opacity: 0, ease: 'power2.out' })
+						.to('body', { duration: 0.2, background: 'var(--marine)', ease: 'power2.out' })
 						.call(() => {
-							navigate('/home')
+							navigate('/home');
 						})
-						.to('.home', { duration: 0.5, opacity: 1, ease: 'power2.in' })
-					break
+						.to(['.home', '.bar'], { duration: 0.5, opacity: 1, ease: 'power2.in', y: '0%' });
+					break;
 				case '/about':
-					const tl5 = gsap.timeline()
-					tl5.to('.about', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+					const tl5 = gsap.timeline();
+					tl5.to(['.about', '.bar'], { duration: 0.5, opacity: 0, ease: 'power2.out' })
+						.to('body', { duration: 0.2, background: 'var(--marine)', ease: 'power2.out' })
 						.call(() => {
-							navigate('/services')
+							navigate('/services');
 						})
-						.to('.services', { duration: 0.5, opacity: 1, ease: 'power2.in' })
-					break
+						.to(['.services', '.bar'], { duration: 0.5, opacity: 1, ease: 'power2.in', y: '0%' });
+					break;
 				case '/contact':
-					const tl6 = gsap.timeline()
-					tl6.to('.contact', { duration: 0.5, opacity: 0, ease: 'power2.out' })
+					const tl6 = gsap.timeline();
+					tl6.to(['.contact', '.bar'], { duration: 0.5, opacity: 0, ease: 'power2.out' })
+						.to('body', { duration: 0.2, background: 'var(--marine)', ease: 'power2.out' })
 						.call(() => {
-							navigate('/about')
+							navigate('/about');
 						})
-						.to('.about', { duration: 0.5, opacity: 1, ease: 'power2.in' })
-					break
+						.to(['.about', '.bar'], { duration: 0.5, opacity: 1, ease: 'power2.in', y: '0%' });
+					break;
 				default:
-					break
+					break;
 			}
 		}
-	}
+	};
 
 	useEffect(() => {
 		window.addEventListener('wheel', handleScroll)
@@ -114,7 +121,7 @@ export const Navbar = () => {
 
 	return (
 		<>
-			<AppBar position="static" className='bar' sx={{ boxSizing: 'border-box', padding: '0', margin: '0', maxWidth: '100%', background: 'var(--marine)' }}>
+			<AppBar position="static" className='bar' sx={{ boxSizing: 'border-box', padding: '0', margin: '0', maxWidth: '100%', background: 'var(--super-dark)' }}>
 				<Toolbar variant="dense">
 
 					<Typography variant="h6" color="inherit" component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', color: 'var(--orange)' } }}>
