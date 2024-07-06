@@ -61,6 +61,9 @@ export const Home = () => {
 
 	}
 
+
+
+	//a scroll event and triggers a function `handleClickNext`
 	const handleScroll = (e) => {
 		if (
 			e.deltaY > 0 &&
@@ -79,6 +82,31 @@ export const Home = () => {
 		}
 	}, [handleScroll])
 
+	//this
+
+	const titleRef = useRef(null)
+
+	useEffect(() => {
+		const title = titleRef.current
+
+		gsap.fromTo(
+			title,
+			{
+				y: '100',
+				scale: 0.5,
+				opacity: 0,
+			},
+			{
+				y: '0%',
+				scale: 1,
+				opacity: 1,
+				duration: 1,
+				ease: 'power3.out',
+			}
+		)
+	}, [])
+
+
 	return (
 		<>
 			<div className='home father'>
@@ -88,7 +116,7 @@ export const Home = () => {
 					</div>
 
 					<div className='title'>
-						<div className='title__home'>
+						<div className='title__home' ref={titleRef}>
 							<h1> GENERAL <br /> SERVICES &<br /> SOLUTIONS </h1>
 						</div>
 
