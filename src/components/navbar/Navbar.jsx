@@ -107,7 +107,7 @@ export const Navbar = () => {
 					<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 						{pages.map((page, id) => (
 							<Link key={id} to={page.href} onClick={(e) => handleNavClick(e, page.href)}>
-								<Button color='inherit' sx={{ color: activePath === page.href ? 'var(--white)' : 'var(--orange)' }}>
+								<Button color='inherit' sx={{ color: activePath === page.href ? 'var(--super-marine)' : 'var(--orange)' }}>
 									{page.name}
 								</Button>
 							</Link>
