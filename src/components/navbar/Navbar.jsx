@@ -9,6 +9,9 @@ import { useState, useEffect } from 'react';
 // GSAP
 import { gsap } from 'gsap'
 
+// IMG
+import imgTest from '../../assets/edificio.png'
+
 
 // Estructure of @MUI
 import MenuIcon from '@mui/icons-material/Menu';
@@ -49,7 +52,8 @@ export const Navbar = () => {
 				case '/home':
 					const tl1 = gsap.timeline();
 					tl1.to(['.home', '.bar'], { duration: 0.5, opacity: 0, ease: 'power2.out' })
-						.to('body', { duration: 0.2, background: 'var(--marine)', ease: 'power2.out' })
+						// .to('body', { duration: 0.2, background: 'var(--marine)', ease: 'power2.out' })
+						.to('body', { duration: 1, zIndex: 9999, backgroundSize: 'cover', backgroundPosition: 'center', ease: 'power2.out' })
 						.call(() => {
 							navigate('/services');
 						})
@@ -172,8 +176,8 @@ export const Navbar = () => {
 					</IconButton>
 
 				</Toolbar>
-			</AppBar >
 
+			</AppBar>
 
 		</>
 	)
