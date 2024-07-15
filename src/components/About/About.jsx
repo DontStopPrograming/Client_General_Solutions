@@ -27,14 +27,12 @@ export const About = () => {
 
 							<p> 100% Completely dedicated </p>
 
+							<p> Our team helps businesses obtain necessary licenses and certifications, ensuring safe and efficient operations.</p>
+
 						</div>
 					</section>
 
 					<section className='section_two_about'>
-						<div className='card_about'>
-							<h2> Licensing and Certifications </h2>
-							<p> Our team helps businesses obtain necessary licenses and certifications, ensuring safe and efficient operations.</p>
-						</div>
 
 						<div className='card_about'>
 							<h2> Streamlined Licensing Process </h2>

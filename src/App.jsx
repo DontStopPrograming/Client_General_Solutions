@@ -1,4 +1,3 @@
-'./App.css'
 
 /* The code snippet is importing specific components and modules from different files and libraries. */
 import { Navbar, Home, Services, About, Contact } from './components'
@@ -14,6 +13,7 @@ function App() {
   return (
 
     <Router>
+
       <Navbar />
 
       <Routes>

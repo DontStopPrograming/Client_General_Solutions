@@ -1,18 +1,8 @@
 import './Navbar.css';
-
-// using react-router-dom
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-
-//HOOKS
 import { useState, useEffect } from 'react';
-
-// GSAP
 import { gsap } from 'gsap';
 
-// IMG
-import imgTest from '../../assets/edificio.png';
-
-// Estructure of @MUI
 import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -80,6 +70,10 @@ export const Navbar = () => {
 
 		if (targetPath && targetTransition) {
 			const tl = gsap.timeline();
+			if (currentPath === '/home' && targetPath === '/services') {
+				tl.to('.imgTest', { duration: 0.5, y: '-100%', ease: 'power2.out' });
+			}
+
 			tl.to([element, '.bar'], { duration: 0.5, opacity: 0, ease: 'power2.out' })
 				.to('body', { duration: 0.2, background: 'var(--marine)', ease: 'power2.out' })
 				.call(() => {
@@ -95,7 +89,7 @@ export const Navbar = () => {
 		return () => {
 			window.removeEventListener('wheel', handleScroll);
 		};
-	}, [handleScroll]);
+	}, []);
 
 	return (
 		<>
@@ -131,6 +125,7 @@ export const Navbar = () => {
 					</IconButton>
 				</Toolbar>
 			</AppBar>
+
 		</>
 	);
 };

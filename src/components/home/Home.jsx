@@ -22,8 +22,8 @@ export const Home = () => {
 			const y = e.clientY - rect.top;
 
 			gsap.to(image, {
-				rotationY: (x - rect.width / 2) / 30,
-				rotationX: (y - rect.height / 2) / 30,
+				rotationY: (x - rect.width / 2) / 45,
+				rotationX: (y - rect.height / 2) / 45,
 				duration: 0,
 				ease: "elastic",
 			});
