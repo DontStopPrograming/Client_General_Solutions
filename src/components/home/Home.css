@@ -8,9 +8,15 @@
 
 }
 
+.title__home span {
+    display: inline-block;
+    transform-origin: center;
+}
+
+
 .container__home {
     display: flex;
-    /* border: 1px solid rgb(0, 255, 128); */
+
 
 
 }

@@ -47,7 +47,6 @@ export const Home = () => {
 		};
 	}, []);
 
-
 	/* Is a hook that returns a navigate function */
 	const navigate = useNavigate()
 
@@ -58,10 +57,7 @@ export const Home = () => {
 				navigate('/services')
 			})
 			.to('.services', { duration: 0.5, opacity: 1, ease: 'power2.in' })
-
 	}
-
-
 
 	//a scroll event and triggers a function `handleClickNext`
 	const handleScroll = (e) => {
@@ -85,6 +81,7 @@ export const Home = () => {
 	//this
 
 	const titleRef = useRef(null)
+	const ampRef = useRef(null)
 
 	useEffect(() => {
 		const title = titleRef.current
@@ -106,6 +103,18 @@ export const Home = () => {
 		)
 	}, [])
 
+	// Animation for rotating '&' every 7 seconds
+	useEffect(() => {
+		const amp = ampRef.current;
+
+		gsap.to(amp, {
+			rotationX: 360,
+			duration: 2,
+			repeat: -1,
+			repeatDelay: 5,
+			ease: 'none'
+		});
+	}, []);
 
 	return (
 		<>
@@ -117,7 +126,7 @@ export const Home = () => {
 
 					<div className='title'>
 						<div className='title__home' ref={titleRef}>
-							<h1> GENERAL <br /> SERVICES &<br /> SOLUTIONS </h1>
+							<h1> GENERAL <br /> SERVICES <span ref={ampRef}>&</span><br /> SOLUTIONS </h1>
 						</div>
 
 						<div className='subtitle__home'>
