@@ -48,7 +48,7 @@ export const Navbar = () => {
 
 	const handleNavClick = (e, href) => {
 		e.preventDefault();
-		transitionPage(window.location.pathname, href);
+		transitionPage(location.pathname, href);
 	};
 
 	const transitionPage = (currentPath, action) => {
@@ -70,9 +70,9 @@ export const Navbar = () => {
 
 		if (targetPath && targetTransition) {
 			const tl = gsap.timeline();
-			if (currentPath === '/home' && targetPath === '/services') {
-				tl.to('.imgTest', { duration: 0.5, y: '-100%', ease: 'power2.out' });
-			}
+			// if (currentPath === '/home' && targetPath === '/services') {
+			// 	tl.to('.imgTest', { duration: 0.5, y: '-100%', ease: 'power2.out' });
+			// }
 
 			tl.to([element, '.bar'], { duration: 0.5, opacity: 0, ease: 'power2.out' })
 				.to('body', { duration: 0.2, background: 'var(--marine)', ease: 'power2.out' })
@@ -93,7 +93,7 @@ export const Navbar = () => {
 
 	return (
 		<>
-			<AppBar position="static" className='bar' sx={{ boxSizing: 'border-box', padding: '0', margin: '0', maxWidth: '100%', background: 'var(--super-dark)' }}>
+			<AppBar position="static" className='bar' sx={{ boxSizing: 'border-box', padding: '0', margin: '0', maxWidth: '100%', background: 'var(--marine)' }}>
 				<Toolbar variant="dense">
 					<Typography variant="h6" color="inherit" component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', color: 'var(--orange)' } }}>
 						JYM
@@ -125,7 +125,6 @@ export const Navbar = () => {
 					</IconButton>
 				</Toolbar>
 			</AppBar>
-
 		</>
 	);
 };

@@ -29,6 +29,8 @@
   --super-dark: #000000;
 
   --marine: #010812;
+  --transition: linear-gradient(#000000, #010812);
+
   --super-marine: #213547;
 
   --orange: #ff914d;
@@ -59,6 +61,7 @@ a:hover {
 }
 
 body {
+  background-color: var(--marine);
   margin: 0;
   padding: 0;
   overflow-x: hidden;

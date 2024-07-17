@@ -1,4 +1,6 @@
-.navbar {}
+.navbar {
+    background: var(--super-dark);
+}
 
 .bar {}
 
@@ -9,7 +11,7 @@
     }
 
     .MuiList-root {
-        background: var(--marine);
+
         width: auto !important;
 
     }
@@ -17,6 +19,7 @@
     .MuiList-root li {
         color: var(--orange);
         font-size: var(--nav-responsive);
+
         display: flex;
         flex-direction: column;
         justify-content: center;
