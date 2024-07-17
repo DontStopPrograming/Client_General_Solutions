@@ -70,9 +70,6 @@ export const Navbar = () => {
 
 		if (targetPath && targetTransition) {
 			const tl = gsap.timeline();
-			// if (currentPath === '/home' && targetPath === '/services') {
-			// 	tl.to('.imgTest', { duration: 0.5, y: '-100%', ease: 'power2.out' });
-			// }
 
 			tl.to([element, '.bar'], { duration: 0.5, opacity: 0, ease: 'power2.out' })
 				.to('body', { duration: 0.2, background: 'var(--marine)', ease: 'power2.out' })
@@ -91,6 +88,11 @@ export const Navbar = () => {
 		};
 	}, []);
 
+	// No renderizar el navbar si estamos en la ruta /home
+	if (location.pathname === '/home') {
+		return null;
+	}
+
 	return (
 		<>
 			<AppBar position="static" className='bar' sx={{ boxSizing: 'border-box', padding: '0', margin: '0', maxWidth: '100%', background: 'var(--marine)' }}>
@@ -100,11 +102,9 @@ export const Navbar = () => {
 					</Typography>
 					<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 						{pages.map((page, id) => (
-							<Link key={id} to={page.href} onClick={(e) => handleNavClick(e, page.href)}>
-								<Button color='inherit' sx={{ color: activePath === page.href ? 'var(--super-marine)' : 'var(--orange)' }}>
-									{page.name}
-								</Button>
-							</Link>
+							<Button key={id} color='inherit' onClick={(e) => handleNavClick(e, page.href)} sx={{ color: activePath === page.href ? 'var(--super-marine)' : 'var(--orange)' }}>
+								{page.name}
+							</Button>
 						))}
 					</Box>
 					<Box sx={{ display: { xs: 'flex', md: 'none', color: 'var(--orange)' } }}>
@@ -113,18 +113,18 @@ export const Navbar = () => {
 						</IconButton>
 						<Menu open={Boolean(anchorNav)} onClose={closeMenu} sx={{ display: { xs: 'flex', md: 'none' } }}>
 							{pages.map((page, id) => (
-								<Link key={id} to={page.href} onClick={(e) => handleNavClick(e, page.href)}>
-									<MenuItem onClick={closeMenu}>
-										{page.name}
-									</MenuItem>
-								</Link>
+								<MenuItem key={id} onClick={() => {
+									closeMenu();
+									handleNavClick(null, page.href); // Llama a handleNavClick directamente
+								}}>
+									{page.name}
+								</MenuItem>
 							))}
 						</Menu>
 					</Box>
-					<IconButton size='large' edge='start' color='inherit' aria-label='logo' sx={{ display: { xs: 'flex', md: 'none' } }}>
-					</IconButton>
 				</Toolbar>
 			</AppBar>
 		</>
 	);
 };
+
