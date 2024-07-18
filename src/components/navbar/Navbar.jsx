@@ -71,13 +71,13 @@ export const Navbar = () => {
 		if (targetPath && targetTransition) {
 			const tl = gsap.timeline();
 
-			tl.to([element, '.bar'], { duration: 0.5, opacity: 0, ease: 'power2.out' })
-				.to('body', { duration: 0.2, background: 'var(--marine)', ease: 'power2.out' })
+			tl.to([element, '.bar'], { duration: 0.9, opacity: 0, ease: 'power2.out' })
+				.to('body', { duration: 0.4, background: 'var(--transition)', ease: 'power2.out' })
 				.call(() => {
 					setActivePath(targetPath);
 					navigate(targetPath);
 				})
-				.to([targetTransition.element, '.bar'], { duration: 0.5, opacity: 1, ease: 'power2.in', y: '0%' });
+				.to([targetTransition.element, '.bar'], { duration: 0.1, opacity: 1, ease: 'power2.in', y: '0%' });
 		}
 	};
 
@@ -95,14 +95,14 @@ export const Navbar = () => {
 
 	return (
 		<>
-			<AppBar position="static" className='bar' sx={{ boxSizing: 'border-box', padding: '0', margin: '0', maxWidth: '100%', background: 'var(--marine)' }}>
+			<AppBar position="static" className='bar' sx={{ boxSizing: 'border-box', padding: '0', margin: '0', maxWidth: '100%', background: 'var(--super-dark)' }}>
 				<Toolbar variant="dense">
 					<Typography variant="h6" color="inherit" component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', color: 'var(--orange)' } }}>
 						JYM
 					</Typography>
 					<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 						{pages.map((page, id) => (
-							<Button key={id} color='inherit' onClick={(e) => handleNavClick(e, page.href)} sx={{ color: activePath === page.href ? 'var(--super-marine)' : 'var(--orange)' }}>
+							<Button key={id} color='inherit' onClick={(e) => handleNavClick(e, page.href)} sx={{ color: activePath === page.href ? 'var(--white)' : 'var(--orange)' }}>
 								{page.name}
 							</Button>
 						))}
