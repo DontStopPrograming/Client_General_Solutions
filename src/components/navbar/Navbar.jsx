@@ -1,5 +1,5 @@
 import './Navbar.css';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 
@@ -71,7 +71,7 @@ export const Navbar = () => {
 		if (targetPath && targetTransition) {
 			const tl = gsap.timeline();
 
-			tl.to([element, '.bar'], { duration: 0.9, opacity: 0, ease: 'power2.out' })
+			tl.to([element, '.bar'], { duration: 0.7, opacity: 0, ease: 'power2.out' })
 				.to('body', { duration: 0.4, background: 'var(--transition)', ease: 'power2.out' })
 				.call(() => {
 					setActivePath(targetPath);
