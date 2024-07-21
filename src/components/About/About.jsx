@@ -1,4 +1,4 @@
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import './About.css';
 
@@ -8,9 +8,21 @@ export const About = () => {
 	const activeCardIndex = useRef(null);
 	const isAnimating = useRef(false);
 	const animationTimeout = useRef(null);
+	const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsSmallScreen(window.innerWidth <= 768);
+		};
+
+		window.addEventListener('resize', handleResize);
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
 
 	const handleMouseEnter = (index) => {
-		if (isAnimating.current || index === activeCardIndex.current) return;
+		if (isSmallScreen || isAnimating.current || index === activeCardIndex.current) return;
 
 		const card = cardsRef.current[index];
 		activeCardIndex.current = index;
@@ -31,26 +43,29 @@ export const About = () => {
 			}
 		});
 
-		gsap.to(card, {
-			duration: 0.4, // Ajustar duración para una animación más rápida
-			scale: 1.2,
-			zIndex: 1,
-			fontSize: '1.5rem',
-			top: '50%',
-			left: '50%',
-			xPercent: 0,
-			yPercent: -50,
-			ease: 'power2.out',
-			onComplete: () => {
-				document.addEventListener('mousemove', handleMouseMove);
-			}
-		});
+		if (!isSmallScreen) {
+			// Solo aplicar animaciones si no es una pantalla pequeña
+			gsap.to(card, {
+				duration: 0.5,
+				scale: 1.2,
+				zIndex: 1,
+				fontSize: '1.5rem',
+				top: '50%',
+				left: '50%',
+				xPercent: -50,
+				yPercent: -50,
+				ease: 'power3.out',
+				onComplete: () => {
+					document.addEventListener('mousemove', handleMouseMove);
+				}
+			});
 
-		gsap.to(containerRef.current, {
-			duration: 0.4, // Ajustar duración para una animación más rápida
-			opacity: 0,
-			ease: 'power2.out'
-		});
+			gsap.to(containerRef.current, {
+				duration: 0.5,
+				opacity: 0,
+				ease: 'power3.out'
+			});
+		}
 	};
 
 	const handleMouseLeave = useCallback(() => {
@@ -58,23 +73,30 @@ export const About = () => {
 
 		const activeCard = cardsRef.current[activeCardIndex.current];
 		if (activeCard) {
-			gsap.to(activeCard, {
-				duration: 0.4, // Ajustar duración para una animación más rápida
-				scale: 1,
-				zIndex: 0,
-				fontSize: '1rem',
-				top: '0%',
-				left: '0%',
-				xPercent: 0,
-				yPercent: 0,
-				ease: 'power2.out',
-				onComplete: () => {
-					isAnimating.current = false;
-					activeCard.classList.remove('active');
-					activeCardIndex.current = null;
-					document.removeEventListener('mousemove', handleMouseMove);
-				}
-			});
+			if (!isSmallScreen) {
+				gsap.to(activeCard, {
+					duration: 0.5,
+					scale: 1,
+					zIndex: 0,
+					fontSize: '1rem',
+					top: '0%',
+					left: '0%',
+					xPercent: 0,
+					yPercent: 0,
+					ease: 'power3.out',
+					onComplete: () => {
+						isAnimating.current = false;
+						activeCard.classList.remove('active');
+						activeCardIndex.current = null;
+						document.removeEventListener('mousemove', handleMouseMove);
+					}
+				});
+			} else {
+				isAnimating.current = false;
+				activeCard.classList.remove('active');
+				activeCardIndex.current = null;
+				document.removeEventListener('mousemove', handleMouseMove);
+			}
 		}
 
 		// Remover la clase 'inactive' de todos los cards
@@ -82,12 +104,14 @@ export const About = () => {
 			c.classList.remove('inactive');
 		});
 
-		gsap.to(containerRef.current, {
-			duration: 0.4, // Ajustar duración para una animación más rápida
-			opacity: 1,
-			ease: 'power2.out'
-		});
-	}, []);
+		if (!isSmallScreen) {
+			gsap.to(containerRef.current, {
+				duration: 0.5,
+				opacity: 1,
+				ease: 'power3.out'
+			});
+		}
+	}, [isSmallScreen]);
 
 	const handleMouseMove = useCallback((event) => {
 		const hoveredElement = document.elementFromPoint(event.clientX, event.clientY);
@@ -100,7 +124,7 @@ export const About = () => {
 			}
 			animationTimeout.current = setTimeout(() => {
 				handleMouseLeave();
-			}, 1000); // Reducir el tiempo de espera para una respuesta más rápida
+			}, 2000);
 		}
 	}, [handleMouseLeave]);
 
