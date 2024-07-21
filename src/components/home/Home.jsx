@@ -138,6 +138,9 @@ export const Home = () => {
 						<img src={arrow__down} onClick={handleClickNext} alt="arrow__down" />
 					</div>
 				</div>
+
+				<div className="spotlight"></div>
+
 			</div>
 		</>
 	);

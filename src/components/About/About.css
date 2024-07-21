@@ -1,7 +1,6 @@
 .about {
     height: auto;
 
-
 }
 
 .container__about {
@@ -75,9 +74,20 @@
 .card_about {
     width: 20%;
     border-radius: 20px;
-    border: 1px solid var(--white);
+    border: 1px solid var(--super-marine);
     padding: 50px;
     margin-bottom: 20px;
+
+    transition: border 0.2s ease;
+}
+
+.card_about.active {
+    border-color: var(--orange);
+}
+
+.card_about.inactive {
+    border: none;
+
 }
 
 /* SECTION TWO ABOUT                                                                  ⬆ CLOSE*/
@@ -152,7 +162,6 @@
     .card_about {
         width: 80%;
         border-radius: 20px;
-        border: 1px solid var(--white);
         padding: 20px;
 
     }

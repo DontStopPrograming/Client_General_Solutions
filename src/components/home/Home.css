@@ -4,8 +4,9 @@
     justify-content: center;
     align-items: center;
 
-
 }
+
+
 
 .title__home span {
     display: inline-block;
@@ -15,8 +16,6 @@
 
 .container__home {
     display: flex;
-
-
 
 }
 
