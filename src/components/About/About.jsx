@@ -52,7 +52,7 @@ export const About = () => {
 				fontSize: '1.5rem',
 				top: '50%',
 				left: '50%',
-				xPercent: -50,
+				xPercent: 0,
 				yPercent: -50,
 				ease: 'power3.out',
 				onComplete: () => {
