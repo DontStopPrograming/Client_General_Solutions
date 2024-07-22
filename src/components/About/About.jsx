@@ -49,11 +49,11 @@ export const About = () => {
 				duration: 0.5,
 				scale: 1.2,
 				zIndex: 1,
-				fontSize: '1.5rem',
+				fontSize: '1.2rem',
 				top: '50%',
 				left: '50%',
 				xPercent: 0,
-				yPercent: -50,
+				yPercent: -40,
 				ease: 'power3.out',
 				onComplete: () => {
 					document.addEventListener('mousemove', handleMouseMove);
@@ -158,8 +158,8 @@ export const About = () => {
 
 						<div className='phrase_about'>
 							<p>
-								<span className='phrase_about_years'> 7 </span> Years of market expertise
-								Providing swift and efficient licensing consultation solutions
+								<span className='phrase_about_years'> 7 </span> Years of market expertise <br />
+								Providing swift and efficient licensing
 							</p>
 							<h1>
 								We're here to ensure you obtain your Operating License and ITSE Certificate hassle-free <br />

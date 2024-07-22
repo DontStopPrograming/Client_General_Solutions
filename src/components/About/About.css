@@ -78,16 +78,20 @@
     padding: 50px;
     margin-bottom: 20px;
 
+    overflow-wrap: break-word;
+    overflow: hidden;
     transition: border 0.2s ease;
 }
 
 .card_about.active {
     border-color: var(--orange);
+    z-index: 1;
 }
 
 .card_about.inactive {
     border: none;
-
+    border-radius: 0;
+    transform: scale(1);
 }
 
 /* SECTION TWO ABOUT                                                                  ⬆ CLOSE*/
