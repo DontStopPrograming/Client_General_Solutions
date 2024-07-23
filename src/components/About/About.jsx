@@ -9,6 +9,7 @@ export const About = () => {
 	const isAnimating = useRef(false);
 	const animationTimeout = useRef(null);
 	const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
+	const [activeImage, setActiveImage] = useState(null);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -28,13 +29,16 @@ export const About = () => {
 		activeCardIndex.current = index;
 		isAnimating.current = true;
 
+		// Set the active image based on the card
+		setActiveImage(cardContents[index].image);
+
 		// Limpiar cualquier temporizador de desactivación anterior
 		if (animationTimeout.current) {
 			clearTimeout(animationTimeout.current);
 			animationTimeout.current = null;
 		}
 
-		// Añadir la clase 'active' al card actual y 'inactive' a los demás
+		// Addes the class 'active' to current card  and 'inactive' the others
 		cardsRef.current.forEach((c, i) => {
 			if (i === index) {
 				c.classList.add('active');
@@ -44,7 +48,7 @@ export const About = () => {
 		});
 
 		if (!isSmallScreen) {
-			// Solo aplicar animaciones si no es una pantalla pequeña
+			// Only execute animations if the screen is not small
 			gsap.to(card, {
 				duration: 0.5,
 				scale: 1.2,
@@ -99,10 +103,13 @@ export const About = () => {
 			}
 		}
 
-		// Remover la clase 'inactive' de todos los cards
+		// Remove the class 'inactive' from all cards
 		cardsRef.current.forEach((c) => {
 			c.classList.remove('inactive');
 		});
+
+		// Quitar la imagen activa
+		setActiveImage(null);
 
 		if (!isSmallScreen) {
 			gsap.to(containerRef.current, {
@@ -117,7 +124,7 @@ export const About = () => {
 		const hoveredElement = document.elementFromPoint(event.clientX, event.clientY);
 		const isHoveredCard = Array.from(cardsRef.current).some((card) => card.contains(hoveredElement));
 
-		// Si el mouse no está sobre un card, iniciar un temporizador para desactivar la animación
+		// If the mouse is not over the card, initial the template for disabled the animation
 		if (!isHoveredCard) {
 			if (animationTimeout.current) {
 				clearTimeout(animationTimeout.current);
@@ -131,15 +138,18 @@ export const About = () => {
 	const cardContents = [
 		{
 			title: "Streamlined Licensing Process",
-			content: "Simplify the process, making it quick and efficient. Our consultants collaborate with you to overcome obstacles, ensuring a seamless experience."
+			content: "Simplify the process, making it quick and efficient. Our consultants collaborate with you to overcome obstacles, ensuring a seamless experience.",
+			image: "/path/to/image1.jpg"
 		},
 		{
 			title: "Civil Security and Protection",
-			content: "Prioritize your safety and protection. Our experts work closely with you to ensure a secure and confidential process, giving you peace of mind."
+			content: "Prioritize your safety and protection. Our experts work closely with you to ensure a secure and confidential process, giving you peace of mind.",
+			image: "/path/to/image2.jpg"
 		},
 		{
 			title: "Client-Centric Approach",
-			content: "Dedicated to your success. Our consultants provide exceptional service to help you achieve your goals. We support you every step, ensuring the best outcome."
+			content: "Dedicated to your success. Our consultants provide exceptional service to help you achieve your goals. We support you every step, ensuring the best outcome.",
+			image: "/path/to/image3.jpg"
 		}
 	];
 
@@ -185,6 +195,13 @@ export const About = () => {
 						</div>
 					))}
 				</section>
+
+				{/* container img active */}
+				{activeImage && (
+					<div className='active_image_container'>
+						<img src={activeImage} alt="Active Card" />
+					</div>
+				)}
 			</div>
 		</>
 	);
