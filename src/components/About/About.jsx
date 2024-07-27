@@ -139,17 +139,17 @@ export const About = () => {
 		{
 			title: "Streamlined Licensing Process",
 			content: "Simplify the process, making it quick and efficient. Our consultants collaborate with you to overcome obstacles, ensuring a seamless experience.",
-			image: "/path/to/image1.jpg"
+			image: "../src/assets/licen.png"
 		},
 		{
 			title: "Civil Security and Protection",
 			content: "Prioritize your safety and protection. Our experts work closely with you to ensure a secure and confidential process, giving you peace of mind.",
-			image: "/path/to/image2.jpg"
+			image: "../src/assets/goou.png"
 		},
 		{
 			title: "Client-Centric Approach",
 			content: "Dedicated to your success. Our consultants provide exceptional service to help you achieve your goals. We support you every step, ensuring the best outcome.",
-			image: "/path/to/image3.jpg"
+			image: "../src/assets/excepti.png"
 		}
 	];
 
@@ -196,7 +196,7 @@ export const About = () => {
 					))}
 				</section>
 
-				{/* container img active */}
+				/* container img active */
 				{activeImage && (
 					<div className='active_image_container'>
 						<img src={activeImage} alt="Active Card" />
