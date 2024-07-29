@@ -12,14 +12,27 @@
     color: var(--orange)
 }
 
-.sub_location,
-.sub_email,
-.sub_phone,
-.sub_follow {
+
+.sub_follow,
+.sub_location {
 
     margin-bottom: 70px;
     border-bottom: 1px solid var(--orange);
     width: auto;
+}
+
+.container__contact__two {
+    display: flex;
+    padding: 50px 200px;
+    margin-left: 100px;
+    gap: 50px;
+}
+
+.footer__copy {
+    display: block;
+    color: var(--white);
+    text-align: center;
+    font-size: var(--p-min);
 }
 
 @media (max-width: 768px) {

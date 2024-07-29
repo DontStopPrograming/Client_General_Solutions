@@ -32,13 +32,13 @@ export const About = () => {
 		// Set the active image based on the card
 		setActiveImage(cardContents[index].image);
 
-		// Limpiar cualquier temporizador de desactivación anterior
+		// Clear any previous deactivation timer
 		if (animationTimeout.current) {
 			clearTimeout(animationTimeout.current);
 			animationTimeout.current = null;
 		}
 
-		// Addes the class 'active' to current card  and 'inactive' the others
+		// Adding the class 'active' to current card and 'inactive' the others
 		cardsRef.current.forEach((c, i) => {
 			if (i === index) {
 				c.classList.add('active');
