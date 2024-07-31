@@ -196,7 +196,6 @@ export const About = () => {
 					))}
 				</section>
 
-				/* container img active */
 				{activeImage && (
 					<div className='active_image_container'>
 						<img src={activeImage} alt="Active Card" />
