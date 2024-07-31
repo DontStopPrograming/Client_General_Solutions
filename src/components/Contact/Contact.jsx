@@ -57,6 +57,7 @@ export const Contact = () => {
                     <p>Lima, 216 - 217 bla bla bla</p>
                     <div className='static_line'></div>
                     <div ref={lineRef} className='animated_line'></div>
+                    <br />
                 </div>
                 <div className='sub_follow' onClick={(e) => { e.stopPropagation(); handleClick('follow'); }}>
                     <h2>Follow on</h2>
