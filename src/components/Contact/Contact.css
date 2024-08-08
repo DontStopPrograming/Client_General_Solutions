@@ -90,5 +90,13 @@
     .container__contact {
         padding: 50px;
         margin-left: 0;
+
+
+    }
+
+    .container__contact__two {
+        padding: 50px;
+        margin-left: 0px;
+
     }
 }
