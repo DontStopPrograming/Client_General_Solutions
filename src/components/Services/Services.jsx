@@ -28,19 +28,50 @@ const style = {
 	left: '50%',
 	top: '50%',
 	transform: 'translate(-50%, -50%)',
-	width: '70%',
-	height: '70%',
+	width: '50%',
+	height: 'auto',
 	padding: '20px',
 	background: '#010812',
-	border: '1px solid #ffffffde',
+	borderRadius: '20px',
+	border: '1px solid #213547',
 	display: 'grid',
 	gridTemplateAreas: `
     "title image1"
     "description image2"`,
 	gridTemplateColumns: '1fr 1fr',
-	gridTemplateRows: 'auto auto',
-	gap: '10px',
+
+	'@media (max-width: 992px)': {
+		width: '80%',
+		height: 'auto',
+		padding: '20px',
+		gridTemplateAreas: `
+		'title'
+		'image1'
+		'description'
+		'image2'
+		`,
+		gridTemplateColumns: '1fr',
+		gridTemplateRows: 'auto',
+	},
+
+	'@media (max-width: 768px)': {
+		width: '80%',
+		height: '98%',
+		padding: '10px',
+		gridTemplateAreas: `
+		'title'
+		'image1'
+		'description'
+		'image2'
+		`,
+		gridTemplateColumns: '1fr',
+		gridTemplateRows: 'auto',
+	}
+
+
 };
+
+
 
 const images = [
 	{
@@ -194,7 +225,7 @@ export const Services = () => {
 						>
 							<Fade in={open}>
 								<Box sx={style}>
-									<Typography id="transition-modal-title" variant="h6" component="h2" sx={{ color: '#ffffffde', gridArea: 'title', padding: '50px', fontSize: '1.5rem' }}>
+									<Typography id="transition-modal-title" variant="h6" component="h2" sx={{ color: '#ffffffde', gridArea: 'title', mt: 4, p: 1, ml: 2, fontSize: '2rem' }}>
 										{selectedImage?.modalContent?.title}
 									</Typography>
 									<Box sx={{
@@ -210,12 +241,13 @@ export const Services = () => {
 											alt="Modal Image 1"
 											style={{
 												width: '300px',
-												height: '200px',
-												borderRadius: '20px',
+												height: '170px',
+												padding: '40px',
+												borderRadius: '60px',
 											}}
 										/>
 									</Box>
-									<Typography id="transition-modal-description" sx={{ color: '#ffffffde', gridArea: 'description', padding: '50px', mt: 1, fontSize: '1rem' }}>
+									<Typography id="transition-modal-description" sx={{ color: '#ffffffde', gridArea: 'description', ml: 4, fontSize: '15px' }}>
 										{selectedImage?.modalContent?.description}
 									</Typography>
 									<Box sx={{ gridArea: 'image2', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -224,8 +256,9 @@ export const Services = () => {
 											alt="Modal Image 2"
 											style={{
 												width: '300px',
-												height: '200px',
-												borderRadius: '20px',
+												height: '170px',
+												padding: '40px',
+												borderRadius: '60px',
 											}}
 										/>
 									</Box>
