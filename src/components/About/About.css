@@ -17,6 +17,7 @@
 .about {
     height: auto;
 
+
 }
 
 .container__about {
@@ -88,6 +89,7 @@
 }
 
 .card_about {
+    cursor: pointer;
     width: 20%;
 
     text-align: left;
@@ -141,7 +143,30 @@
 
 
 
-/* RESPONSIVE                                                                              ⬇ OPEN*/
+/* RESPONSIVE ⬇ OPEN*/
+
+@media (max-width: 992px) {
+    .section_one_about {
+        display: grid;
+        grid-template-columns: .5fr 1fr;
+        grid-template-rows: repeat(1, 1fr);
+        padding: 10px;
+    }
+
+    .phrase_about h1 {
+        width: 80%;
+    }
+
+    .phrase_about p {
+        font-size: var(--p-992);
+        width: 85%;
+    }
+
+    .phrase_about_years {
+        font-size: 5rem;
+    }
+
+}
 
 @media (max-width: 768px) {
 
@@ -188,6 +213,7 @@
     }
 
     .card_about {
+        cursor: default;
         width: 80%;
         border-radius: 20px;
         padding: 20px;

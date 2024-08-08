@@ -22,8 +22,11 @@ export const About = () => {
 		};
 	}, []);
 
-	const handleMouseEnter = (index) => {
-		if (isSmallScreen || isAnimating.current || index === activeCardIndex.current) return;
+	const handleCardClick = (index) => {
+		if (isAnimating.current || index === activeCardIndex.current) {
+			handleMouseLeave();
+			return;
+		}
 
 		const card = cardsRef.current[index];
 		activeCardIndex.current = index;
@@ -48,7 +51,6 @@ export const About = () => {
 		});
 
 		if (!isSmallScreen) {
-			// Only execute animations if the screen is not small
 			gsap.to(card, {
 				duration: 0.5,
 				scale: 1.2,
@@ -60,7 +62,7 @@ export const About = () => {
 				yPercent: -40,
 				ease: 'power3.out',
 				onComplete: () => {
-					document.addEventListener('mousemove', handleMouseMove);
+					document.addEventListener('click', handleClickOutside);
 				}
 			});
 
@@ -71,6 +73,16 @@ export const About = () => {
 			});
 		}
 	};
+
+	const handleClickOutside = useCallback((event) => {
+		const isClickOutside = !cardsRef.current.some((card) =>
+			card.contains(event.target)
+		);
+
+		if (isClickOutside) {
+			handleMouseLeave();
+		}
+	}, []);
 
 	const handleMouseLeave = useCallback(() => {
 		if (activeCardIndex.current === null) return;
@@ -92,14 +104,14 @@ export const About = () => {
 						isAnimating.current = false;
 						activeCard.classList.remove('active');
 						activeCardIndex.current = null;
-						document.removeEventListener('mousemove', handleMouseMove);
+						document.removeEventListener('click', handleClickOutside);
 					}
 				});
 			} else {
 				isAnimating.current = false;
 				activeCard.classList.remove('active');
 				activeCardIndex.current = null;
-				document.removeEventListener('mousemove', handleMouseMove);
+				document.removeEventListener('click', handleClickOutside);
 			}
 		}
 
@@ -118,22 +130,7 @@ export const About = () => {
 				ease: 'power3.out'
 			});
 		}
-	}, [isSmallScreen]);
-
-	const handleMouseMove = useCallback((event) => {
-		const hoveredElement = document.elementFromPoint(event.clientX, event.clientY);
-		const isHoveredCard = Array.from(cardsRef.current).some((card) => card.contains(hoveredElement));
-
-		// If the mouse is not over the card, initial the template for disabled the animation
-		if (!isHoveredCard) {
-			if (animationTimeout.current) {
-				clearTimeout(animationTimeout.current);
-			}
-			animationTimeout.current = setTimeout(() => {
-				handleMouseLeave();
-			}, 2000);
-		}
-	}, [handleMouseLeave]);
+	}, [isSmallScreen, handleClickOutside]);
 
 	const cardContents = [
 		{
@@ -187,8 +184,7 @@ export const About = () => {
 							className='card_about'
 							key={index}
 							ref={(el) => (cardsRef.current[index] = el)}
-							onMouseEnter={() => handleMouseEnter(index)}
-							onMouseLeave={() => handleMouseLeave()}
+							onClick={() => handleClick(index)}
 						>
 							<h2>{card.title}</h2>
 							<p>{card.content}</p>
