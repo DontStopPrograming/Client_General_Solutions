@@ -31,7 +31,7 @@ const style = {
 	width: '70%',
 	height: '70%',
 	padding: '20px',
-	background: '#ff914d',
+	background: '#010812',
 	border: '1px solid #ffffffde',
 	display: 'grid',
 	gridTemplateAreas: `
@@ -48,7 +48,7 @@ const images = [
 		imgPath: professional,
 		modalContent: {
 			title: 'Expert Preparation of Technical Documentation',
-			description: 'Professional Technical Inspection by the National Institute of Civil Defense INDECI...',
+			description: 'Professional Technical Inspection by the National Institute of Civil Defense INDECI. Professional technical inspections are conducted by the National Institute of Civil Defense (INDECI). This process involves meticulous preparation of technical documents, ensuring that every aspect of the inspection adheres to national safety and compliance standards. Detailed reports and documentation are produced to certify that all safety protocols and regulations are thoroughly met, providing a reliable and professional validation of the facilitys preparedness and structural integrity.',
 			images: [professional, professional],
 		}
 	},
@@ -57,7 +57,7 @@ const images = [
 		imgPath: diagnostic,
 		modalContent: {
 			title: 'Specialty Diagnostic Assessment and Recommendations',
-			description: 'Physical Implementation in Compliance with National Building Regulations...',
+			description: 'Physical Implementation in Compliance with National Building Regulations. In this phase, detailed physical implementation is carried out, strictly adhering to national building regulations and the electrical code. Each aspect of the installations is evaluated to ensure compliance with the highest standards of quality and safety. Recommendations are based on specialized diagnostics, ensuring that all improvements and updates not only meet regulations but also optimize performance and safety of the facilities. This comprehensive approach guarantees that all systems function harmoniously and efficiently.',
 			images: [diagnostic, diagnostic],
 		}
 	},
@@ -66,7 +66,7 @@ const images = [
 		imgPath: surveying,
 		modalContent: {
 			title: 'Surveying and Updating of Plans',
-			description: 'Location, Architectural Design, Security Measures...',
+			description: 'Location, Architectural Design, Security Measures. A comprehensive site survey is conducted, considering every detail of the location and existing architectural design. This analysis includes a complete review of implemented security measures as well as electrical and plumbing installations. Updating the plans ensures that all structures and systems comply with current regulations and optimizes their functionality. This process ensures that the facilities are prepared for any inspection and operate efficiently and safely.',
 			images: [surveying, surveying],
 		}
 	},
@@ -75,7 +75,7 @@ const images = [
 		imgPath: security,
 		modalContent: {
 			title: 'Security Plan Design and Development',
-			description: 'Risk Assessment, Response Plans, and Contingency Planning...',
+			description: 'Risk Assessment, Response Plans, and Contingency Planning. Risk assessment begins with a thorough analysis of all potential threats and vulnerabilities present. Using this information, tailored response strategies are developed for each identified risk. Additionally, specific contingency plans are created for various emergency situations, ensuring comprehensive preparedness. This process not only aims to protect physical and human assets but also ensures operational continuity in any eventuality.',
 			images: [security, security],
 		}
 	},
@@ -134,13 +134,14 @@ export const Services = () => {
 											<Box
 												component="img"
 												sx={{
-													height: 'auto',
+
 													display: 'block',
 													maxWidth: '100%',
 													overflow: 'hidden',
 													width: '100%',
 													height: '330px',
-													cursor: 'pointer'
+													cursor: 'pointer',
+
 												}}
 												src={step.imgPath}
 												alt={step.label}
@@ -159,7 +160,10 @@ export const Services = () => {
 										size="small"
 										onClick={handleNext}
 										disabled={activeStep === maxSteps - 1}
-										sx={{ color: '#ff914d' }}
+										sx={{
+											color: '#ff914d',
+
+										}}
 									>
 										Next
 										{theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
@@ -185,27 +189,44 @@ export const Services = () => {
 							closeAfterTransition
 							slots={{ backdrop: Backdrop }}
 							slotProps={{ backdrop: { timeout: 800 } }}
+
+
 						>
 							<Fade in={open}>
 								<Box sx={style}>
-									<Typography id="transition-modal-title" variant="h6" component="h2" sx={{ gridArea: 'title', fontSize: '1.8rem' }}>
+									<Typography id="transition-modal-title" variant="h6" component="h2" sx={{ color: '#ffffffde', gridArea: 'title', padding: '50px', fontSize: '1.5rem' }}>
 										{selectedImage?.modalContent?.title}
 									</Typography>
-									<Box sx={{ gridArea: 'image1', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+									<Box sx={{
+										gridArea: 'image1',
+										display: 'flex',
+										alignItems: 'center',
+										justifyContent: 'center',
+
+
+									}}>
 										<img
 											src={selectedImage?.modalContent?.images[0]}
 											alt="Modal Image 1"
-											style={{ width: '50%', height: 'auto' }}
+											style={{
+												width: '300px',
+												height: '200px',
+												borderRadius: '20px',
+											}}
 										/>
 									</Box>
-									<Typography id="transition-modal-description" sx={{ gridArea: 'description', mt: 1, fontSize: '1.2rem' }}>
+									<Typography id="transition-modal-description" sx={{ color: '#ffffffde', gridArea: 'description', padding: '50px', mt: 1, fontSize: '1rem' }}>
 										{selectedImage?.modalContent?.description}
 									</Typography>
 									<Box sx={{ gridArea: 'image2', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 										<img
 											src={selectedImage?.modalContent?.images[1]}
 											alt="Modal Image 2"
-											style={{ width: '50%', height: 'auto' }}
+											style={{
+												width: '300px',
+												height: '200px',
+												borderRadius: '20px',
+											}}
 										/>
 									</Box>
 								</Box>
