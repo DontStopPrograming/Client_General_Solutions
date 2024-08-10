@@ -147,7 +147,7 @@ export const Services = () => {
 									height: 60,
 									pl: 2,
 									bgcolor: 'black',
-									color: '#ff914d',
+									color: 'var(--white)',
 									border: '1px solid #213547',
 								}}
 							>
@@ -173,6 +173,7 @@ export const Services = () => {
 													height: '330px',
 													cursor: 'pointer',
 
+
 												}}
 												src={step.imgPath}
 												alt={step.label}
@@ -192,7 +193,7 @@ export const Services = () => {
 										onClick={handleNext}
 										disabled={activeStep === maxSteps - 1}
 										sx={{
-											color: '#ff914d',
+											color: 'var(--orange)',
 
 										}}
 									>
@@ -202,7 +203,7 @@ export const Services = () => {
 								}
 								backButton={
 									<Button size="small" onClick={handleBack} disabled={activeStep === 0}
-										sx={{ color: '#ff914d' }}>
+										sx={{ color: 'var(--orange)' }}>
 										{theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
 										Back
 									</Button>
@@ -225,7 +226,7 @@ export const Services = () => {
 						>
 							<Fade in={open}>
 								<Box sx={style}>
-									<Typography id="transition-modal-title" variant="h6" component="h2" sx={{ color: '#ffffffde', gridArea: 'title', mt: 4, p: 1, ml: 2, fontSize: '2rem' }}>
+									<Typography id="transition-modal-title" variant="h6" component="h2" sx={{ color: 'var(--white)', gridArea: 'title', mt: 4, p: 1, ml: 2, fontSize: '2rem' }}>
 										{selectedImage?.modalContent?.title}
 									</Typography>
 									<Box sx={{
@@ -247,7 +248,7 @@ export const Services = () => {
 											}}
 										/>
 									</Box>
-									<Typography id="transition-modal-description" sx={{ color: '#ffffffde', gridArea: 'description', ml: 4, fontSize: '15px' }}>
+									<Typography id="transition-modal-description" sx={{ color: 'var(--white)', gridArea: 'description', ml: 4, fontSize: '15px' }}>
 										{selectedImage?.modalContent?.description}
 									</Typography>
 									<Box sx={{ gridArea: 'image2', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -271,7 +272,7 @@ export const Services = () => {
 						<h1>Your safety is <br /> our top priority</h1>
 					</div>
 				</div>
-			</div>
+			</div >
 		</>
 	);
 };

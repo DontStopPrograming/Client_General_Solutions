@@ -24,6 +24,11 @@
     text-orientation: upright;
     /* border: 1px solid rgb(0, 255, 128); */
     padding: 0 75%;
+    color: var(--orange);
+
+    background: var(--transition-title);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }
 
 
@@ -83,7 +88,6 @@
     .title_services {
         writing-mode: horizontal-tb;
         margin-left: 0;
-
         padding: 0 20%;
 
     }
