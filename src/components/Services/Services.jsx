@@ -2,11 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import './Services.css';
 
+//Imports the galeries from assets
 import professional from '../../assets/professional.jpeg';
 import diagnostic from '../../assets/diagnostic.jpeg';
 import surveying from '../../assets/surveying.jpeg';
 import security from '../../assets/security.jpeg';
 
+
+//@mui Imports from the framework material ui 
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MobileStepper from '@mui/material/MobileStepper';
@@ -23,6 +26,7 @@ import Fade from '@mui/material/Fade';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
+// This is the setup for @mui as to responsive design
 const style = {
 	position: 'absolute',
 	left: '50%',
@@ -71,7 +75,7 @@ const style = {
 
 };
 
-
+// Data structure by images
 
 const images = [
 	{
@@ -124,9 +128,9 @@ export const Services = () => {
 	const handleStepChange = (step) => setActiveStep(step);
 
 	const handleImageClick = (image) => {
-		setSelectedImage(image);
-		setOpen(true);
-	};
+		setSelectedImage(image)
+		setOpen(true)
+	}
 
 	const handleClose = () => setOpen(false);
 

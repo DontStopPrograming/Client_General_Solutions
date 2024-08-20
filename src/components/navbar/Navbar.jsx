@@ -47,8 +47,9 @@ export const Navbar = () => {
 	};
 
 	const handleNavClick = (e, href) => {
-		e.preventDefault();
+		if (e) e.preventDefault();
 		transitionPage(location.pathname, href);
+		closeMenu()
 	};
 
 	const transitionPage = (currentPath, action) => {

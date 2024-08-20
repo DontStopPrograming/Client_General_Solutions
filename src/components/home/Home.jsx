@@ -47,6 +47,7 @@ export const Home = () => {
 		};
 	}, []);
 
+
 	/* Is a hook that returns a navigate function */
 	const navigate = useNavigate()
 
@@ -115,6 +116,7 @@ export const Home = () => {
 			ease: 'none'
 		});
 	}, []);
+
 
 	return (
 		<>
