@@ -73,7 +73,14 @@
 
 
 @media (max-width: 768px) {
+
+    .subtitle__home p {
+        font-size: var(--p-992);
+
+    }
+
     .container__home {
+        margin-top: 100px;
         flex-direction: column;
         align-items: center;
     }
