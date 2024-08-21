@@ -19,7 +19,7 @@
 
   /* Size <p /> media screen */
   --p-max: 1.7em;
-  --p-992: 1.5em;
+  --p-medium: 1.5em;
   --p-min: 1em;
 
   --nav-responsive: 1.2rem;
