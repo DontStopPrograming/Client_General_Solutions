@@ -105,12 +105,14 @@
     }
 
     .img__home-down {
+        position: relative;
         order: 2;
         margin-top: -80px;
         margin-left: 70%;
     }
 
     .img__home-down img {
+        position: absolute;
         width: 70px;
         height: 70px;
 
