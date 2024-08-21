@@ -1,17 +1,18 @@
 import './Home.css';
-import '../../../src/index.css'
+import '../../../src/index.css';
 
-import architect from '../../assets/architect.png'
-import arrow__down from '../../assets/arrow-down.png'
+import architect from '../../assets/architect.png';
+import arrow__down from '../../assets/arrow-down.png';
 
 import { useNavigate } from 'react-router-dom';
-
-import { gsap } from 'gsap'
-import { useRef, useEffect } from 'react'
+import { gsap } from 'gsap';
+import { useRef, useEffect } from 'react';
 
 export const Home = () => {
-	/* Creates an interactive effect on an image element using the GSAP library*/
-	const imageRef = useRef(null)
+	const imageRef = useRef(null);
+	const titleRef = useRef(null);
+	const ampRef = useRef(null);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const image = imageRef.current;
@@ -47,45 +48,38 @@ export const Home = () => {
 		};
 	}, []);
 
-
-	/* Is a hook that returns a navigate function */
-	const navigate = useNavigate()
-
 	const handleClickNext = () => {
-		const tl = gsap.timeline()
+		const tl = gsap.timeline();
 		tl.to('.home', { duration: 0.5, opacity: 0, ease: 'power2.out' })
 			.call(() => {
-				navigate('/services')
+				navigate('/services');
 			})
-			.to('.services', { duration: 0.5, opacity: 1, ease: 'power2.in' })
-	}
+			.to('.services', { duration: 0.5, opacity: 1, ease: 'power2.in' });
+	};
 
-	//a scroll event and triggers a function `handleClickNext`
 	const handleScroll = (e) => {
+		const delta = e.deltaY || e.detail || e.wheelDelta;
+
 		if (
-			e.deltaY > 0 &&
-			document.documentElement.scrollHeight -
-			document.documentElement.clientHeight <=
-			document.documentElement.scrollTop + 1
+			delta > 0 &&
+			document.documentElement.scrollHeight - document.documentElement.clientHeight <= document.documentElement.scrollTop + 1
 		) {
-			handleClickNext()
+			handleClickNext();
 		}
-	}
+	};
 
 	useEffect(() => {
-		window.addEventListener('wheel', handleScroll)
+		window.addEventListener('wheel', handleScroll);
+		window.addEventListener('scroll', handleScroll);
+
 		return () => {
-			window.removeEventListener('wheel', handleScroll)
-		}
-	}, [handleScroll])
-
-	//this
-
-	const titleRef = useRef(null)
-	const ampRef = useRef(null)
+			window.removeEventListener('wheel', handleScroll);
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
 
 	useEffect(() => {
-		const title = titleRef.current
+		const title = titleRef.current;
 
 		gsap.fromTo(
 			title,
@@ -101,10 +95,9 @@ export const Home = () => {
 				duration: 1,
 				ease: 'power3.out',
 			}
-		)
-	}, [])
+		);
+	}, []);
 
-	// Animation for rotating '&' every 7 seconds
 	useEffect(() => {
 		const amp = ampRef.current;
 
@@ -117,33 +110,29 @@ export const Home = () => {
 		});
 	}, []);
 
-
 	return (
-		<>
-			<div className='home father'>
-				<div className='container__home'>
-					<div className='img__home'>
-						<img src={architect} alt="engineer" ref={imageRef} />
+		<div className='home father'>
+			<div className='container__home'>
+				<div className='img__home'>
+					<img src={architect} alt="engineer" ref={imageRef} />
+				</div>
+
+				<div className='title'>
+					<div className='title__home' ref={titleRef}>
+						<h1> GENERAL <br /> SERVICES <span ref={ampRef}>&</span><br /> SOLUTIONS </h1>
 					</div>
 
-					<div className='title'>
-						<div className='title__home' ref={titleRef}>
-							<h1> GENERAL <br /> SERVICES <span ref={ampRef}>&</span><br /> SOLUTIONS </h1>
-						</div>
-
-						<div className='subtitle__home'>
-							<p> EXPERTS IN CIVIL SECURITY </p>
-						</div>
-					</div>
-
-					<div className='img__home-down'>
-						<img src={arrow__down} onClick={handleClickNext} alt="arrow__down" />
+					<div className='subtitle__home'>
+						<p> EXPERTS IN CIVIL SECURITY </p>
 					</div>
 				</div>
 
-				<div className="spotlight"></div>
-
+				<div className='img__home-down'>
+					<img src={arrow__down} onClick={handleClickNext} alt="arrow__down" />
+				</div>
 			</div>
-		</>
+
+			<div className="spotlight"></div>
+		</div>
 	);
-}
+};

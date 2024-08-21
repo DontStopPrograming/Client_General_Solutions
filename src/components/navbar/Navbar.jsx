@@ -49,7 +49,7 @@ export const Navbar = () => {
 	const handleNavClick = (e, href) => {
 		if (e) e.preventDefault();
 		transitionPage(location.pathname, href);
-		closeMenu()
+		closeMenu();
 	};
 
 	const transitionPage = (currentPath, action) => {
@@ -84,8 +84,10 @@ export const Navbar = () => {
 
 	useEffect(() => {
 		window.addEventListener('wheel', handleScroll);
+		window.addEventListener('scroll', handleScroll);
 		return () => {
 			window.removeEventListener('wheel', handleScroll);
+			window.removeEventListener('scroll', handleScroll);
 		};
 	}, []);
 
@@ -95,37 +97,33 @@ export const Navbar = () => {
 	}
 
 	return (
-		<>
-			<AppBar position="static" className='bar' sx={{ boxSizing: 'border-box', padding: '0', margin: '0', maxWidth: '100%', background: 'var(--super-dark)' }}>
-				<Toolbar variant="dense">
-					<Typography variant="h6" color="inherit" component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', color: 'var(--orange)' } }}>
-						JYM
-					</Typography>
-					<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+		<AppBar position="static" className='bar' sx={{ boxSizing: 'border-box', padding: '0', margin: '0', maxWidth: '100%', background: 'var(--super-dark)' }}>
+			<Toolbar variant="dense">
+				<Typography variant="h6" color="inherit" component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', color: 'var(--orange)' } }}>
+					JYM
+				</Typography>
+				<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+					{pages.map((page, id) => (
+						<Button key={id} color='inherit' onClick={(e) => handleNavClick(e, page.href)} sx={{ color: activePath === page.href ? 'var(--white)' : 'var(--orange)' }}>
+							{page.name}
+						</Button>
+					))}
+				</Box>
+				<Box sx={{ display: { xs: 'flex', md: 'none', color: 'var(--orange)' } }}>
+					<IconButton size='large' edge='start' color='inherit' onClick={openMenu}>
+						<MenuIcon />
+					</IconButton>
+					<Menu open={Boolean(anchorNav)} onClose={closeMenu} sx={{ display: { xs: 'flex', md: 'none' } }}>
 						{pages.map((page, id) => (
-							<Button key={id} color='inherit' onClick={(e) => handleNavClick(e, page.href)} sx={{ color: activePath === page.href ? 'var(--white)' : 'var(--orange)' }}>
+							<MenuItem key={id} onClick={(e) => handleNavClick(e, page.href)} sx={{ color: activePath === page.href ? 'var(--white)' : 'var(--orange)' }}>
 								{page.name}
-							</Button>
+							</MenuItem>
 						))}
-					</Box>
-					<Box sx={{ display: { xs: 'flex', md: 'none', color: 'var(--orange)' } }}>
-						<IconButton size='large' edge='start' color='inherit' onClick={openMenu}>
-							<MenuIcon />
-						</IconButton>
-						<Menu open={Boolean(anchorNav)} onClose={closeMenu} sx={{ display: { xs: 'flex', md: 'none' } }}>
-							{pages.map((page, id) => (
-								<MenuItem key={id} onClick={() => {
-									closeMenu();
-									handleNavClick(null, page.href); // Llama a handleNavClick directamente
-								}}>
-									{page.name}
-								</MenuItem>
-							))}
-						</Menu>
-					</Box>
-				</Toolbar>
-			</AppBar>
-		</>
+					</Menu>
+				</Box>
+			</Toolbar>
+		</AppBar>
 	);
 };
+
 
