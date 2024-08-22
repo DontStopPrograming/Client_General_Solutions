@@ -83,8 +83,8 @@ const images = [
 		imgPath: professional,
 		modalContent: {
 			title: 'Expert Preparation of Technical Documentation',
-			description: 'Professional Technical Inspection by the National Institute of Civil Defense INDECI. Professional technical inspections are conducted by the National Institute of Civil Defense (INDECI). This process involves meticulous preparation of technical documents, ensuring that every aspect of the inspection adheres to national safety and compliance standards. Detailed reports and documentation are produced to certify that all safety protocols and regulations are thoroughly met, providing a reliable and professional validation of the facilitys preparedness and structural integrity.',
-			images: [professional, professional],
+			description: 'INDECI conducts professional technical inspections, meticulously preparing documents to ensure compliance with national safety standards. Detailed reports certify that facilities meet all safety protocols, validating their structural integrity and preparedness.',
+			images: [professional],
 		}
 	},
 	{
@@ -92,8 +92,8 @@ const images = [
 		imgPath: diagnostic,
 		modalContent: {
 			title: 'Specialty Diagnostic Assessment and Recommendations',
-			description: 'Physical Implementation in Compliance with National Building Regulations. In this phase, detailed physical implementation is carried out, strictly adhering to national building regulations and the electrical code. Each aspect of the installations is evaluated to ensure compliance with the highest standards of quality and safety. Recommendations are based on specialized diagnostics, ensuring that all improvements and updates not only meet regulations but also optimize performance and safety of the facilities. This comprehensive approach guarantees that all systems function harmoniously and efficiently.',
-			images: [diagnostic, diagnostic],
+			description: 'Detailed physical implementation adheres to national building regulations and electrical codes, ensuring quality and safety. Specialized diagnostics guide improvements, optimizing performance and guaranteeing efficient, harmonious system functionality.',
+			images: [diagnostic],
 		}
 	},
 	{
@@ -101,8 +101,8 @@ const images = [
 		imgPath: surveying,
 		modalContent: {
 			title: 'Surveying and Updating of Plans',
-			description: 'Location, Architectural Design, Security Measures. A comprehensive site survey is conducted, considering every detail of the location and existing architectural design. This analysis includes a complete review of implemented security measures as well as electrical and plumbing installations. Updating the plans ensures that all structures and systems comply with current regulations and optimizes their functionality. This process ensures that the facilities are prepared for any inspection and operate efficiently and safely.',
-			images: [surveying, surveying],
+			description: 'A comprehensive site survey reviews the location, architectural design, security measures, and installations. Updated plans ensure compliance with regulations, optimizing functionality for safe and efficient operation.',
+			images: [surveying],
 		}
 	},
 	{
@@ -110,8 +110,8 @@ const images = [
 		imgPath: security,
 		modalContent: {
 			title: 'Security Plan Design and Development',
-			description: 'Risk Assessment, Response Plans, and Contingency Planning. Risk assessment begins with a thorough analysis of all potential threats and vulnerabilities present. Using this information, tailored response strategies are developed for each identified risk. Additionally, specific contingency plans are created for various emergency situations, ensuring comprehensive preparedness. This process not only aims to protect physical and human assets but also ensures operational continuity in any eventuality.',
-			images: [security, security],
+			description: 'Risk assessment analyzes potential threats and vulnerabilities, leading to tailored response strategies and specific contingency plans. This ensures comprehensive preparedness, protecting assets and ensuring operational continuity in emergencies.',
+			images: [security],
 		}
 	},
 ];
